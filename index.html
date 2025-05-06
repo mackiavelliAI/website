@@ -212,7 +212,7 @@
   <!-- ===================== HEADER ===================== -->
   <header>
     <div class="nav-container">
-      <div class="brand">YourBrand</div>
+      <div class="brand">Mackiavelli</div>
       <i class="fas fa-bars menu-toggle"></i>
       <nav>
         <a href="#services">Services</a>
@@ -355,6 +355,22 @@
       alert("Thank you! We will be in touch shortly.");
       e.target.reset();
     });
+  </script>
+  <script type="text/javascript">
+    (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '671260cdb2c68d651860578d' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
   </script>
 </body>
 </html>
