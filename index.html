@@ -44,7 +44,7 @@
       <div class="flex h-14 items-center justify-between">
         <a href="#top" class="inline-flex items-center gap-2 font-semibold">
           <span class="inline-block h-6 w-6 rounded bg-[#CBA135]" ></span>
-          <span class="tracking-wide">Mackiavelli</span>
+          <span class="tracking-wide font-extrabold">Mackiavelli</span>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm">
           <a href="#features" class="hover:text-brand-ivory/90 font-extrabold">Benefits</a>
@@ -54,7 +54,7 @@
           <a href="#faq" class="hover:text-brand-ivory/90 font-extrabold">FAQ</a>
         </nav>
         <div class="flex items-center gap-2">
-          <a href="#cta" class="inline-block rounded-lg bg-[#CBA135] px-3.5 py-1.5 text-sm font-medium text-black hover:opacity-90" >Book a call</a>
+          <a href="#cta" class="inline-block rounded-lg bg-[#CBA135] px-3.5 py-1.5 text-sm font-medium text-black hover:opacity-90 font-extrabold" >Book a call</a>
         </div>
       </div>
     </div>
@@ -295,41 +295,22 @@
     </section>
 
     <!-- CTA Band -->
-<script>
-const N8N_WEBHOOK = "https://n8n.yourdomain.com/webhook/mackiavelli-leads"; // ← your URL
-
-document.getElementById("cta-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("cta-email").value.trim();
-  const msg = document.getElementById("cta-msg");
-  if (!email || !email.includes("@")) {
-    msg.textContent = "Enter a valid email.";
-    return;
-  }
-  msg.textContent = "Submitting...";
-  try {
-    const res = await fetch(N8N_WEBHOOK, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        source: "cta",
-        page: location.href,
-        timestamp: new Date().toISOString(),
-      }),
-    });
-    if (res.ok) {
-      msg.textContent = "Submitted! Check your email soon.";
-      document.getElementById("cta-form").reset();
-    } else {
-      msg.textContent = "Error submitting form.";
-    }
-  } catch (err) {
-    console.error(err);
-    msg.textContent = "Could not connect. Try again later.";
-  }
-});
-</script>
+    <section id="cta" class="py-16">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-900/60 px-6 py-10 text-center md:px-12">
+          <h3 class="text-2xl font-bold text-brand-ivory md:text-3xl">Ready to automate the boring work?</h3>
+          <p class="mt-2 text-neutral-300">Book a 15‑minute discovery call. If there’s no fit, we’ll tell you straight.</p>
+          <form class="mx-auto mt-6 flex max-w-xl flex-col items-center gap-3 sm:flex-row">
+            <label for="email" class="sr-only">Email</label>
+            <input id="email" type="email" required placeholder="you@company.com"
+                   class="w-full flex-1 rounded-lg border border-neutral-800 bg-brand-black px-4 py-3 text-sm outline-none ring-\[#CBA135\]/40 placeholder:text-neutral-500 focus:ring-2" >
+            <button type="submit" class="w-full rounded-lg bg-\[#CBA135\] px-5 py-3 text-sm font-semibold text-black hover:opacity-90 sm:w-auto" >Book call</button>
+          </form>
+          <p class="mt-2 text-xs text-neutral-500">By continuing, you agree to our <a href="#" class="underline">Terms</a> and <a href="#" class="underline">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="border-t border-neutral-800 py-10">
@@ -377,6 +358,40 @@ document.getElementById("cta-form").addEventListener("submit", async (e) => {
   </footer>
 
   <script>
+    // Sends email submission to N8N
+const N8N_WEBHOOK = "https://n8n.yourdomain.com/webhook/mackiavelli-leads"; // ← your URL
+
+document.getElementById("cta-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("cta-email").value.trim();
+  const msg = document.getElementById("cta-msg");
+  if (!email || !email.includes("@")) {
+    msg.textContent = "Enter a valid email.";
+    return;
+  }
+  msg.textContent = "Submitting...";
+  try {
+    const res = await fetch(N8N_WEBHOOK, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        source: "cta",
+        page: location.href,
+        timestamp: new Date().toISOString(),
+      }),
+    });
+    if (res.ok) {
+      msg.textContent = "Submitted! Check your email soon.";
+      document.getElementById("cta-form").reset();
+    } else {
+      msg.textContent = "Error submitting form.";
+    }
+  } catch (err) {
+    console.error(err);
+    msg.textContent = "Could not connect. Try again later.";
+  }
+});
     // Navbar shadow on scroll
     const nav = document.getElementById('navbar');
     const setShadow = () => nav.classList.toggle('shadow-lg', window.scrollY > 4);
