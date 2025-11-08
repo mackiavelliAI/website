@@ -226,22 +226,84 @@
       <p class="mt-8 text-xs text-neutral-500">&copy; <span id="year"></span> Mackiavelli Ltd. All rights reserved.</p>
     </div>
   </footer>
-  <script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '69094d0abfa574c17e246ef3' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-            }
-          });
-        }
-        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-    })(document, 'script');
-  </script>
+  <!-- Footer -->
+  <footer class="border-t border-neutral-800 py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-4">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 font-semibold">
+            <!--span class="inline-block h-6 w-6 rounded bg-[#CBA135]" ></span-->
+            <img 
+              src="mackiavelli-logo-256.png"
+              alt="Mackiavelli logo"
+              class="h-10 w-10 object-contain"
+              loading="eager" decoding="async"
+              />
+            <span class="tracking-wide">Mackiavelli</span>
+          </div>
+          <p class="text-sm text-neutral-400">Systems, not freelancers. Accountability, not guesswork.</p>
+          <div class="flex gap-3 text-neutral-400">
+            <a href="#" aria-label="Twitter" class="hover:text-brand-ivory">X</a>
+            <a href="#" aria-label="GitHub" class="hover:text-brand-ivory">GH</a>
+            <a href="#" aria-label="LinkedIn" class="hover:text-brand-ivory">in</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="mb-3 font-semibold text-brand-ivory">Menu</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="#features" class="hover:text-brand-ivory">Benefits</a></li>
+            <li><a href="#how" class="hover:text-brand-ivory">How it works</a></li>
+            <li><a href="#pricing" class="hover:text-brand-ivory">Pricing</a></li>
+            <li><a href="#faq" class="hover:text-brand-ivory">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mb-3 font-semibold text-brand-ivory">Legal</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li><a href="#" class="hover:text-brand-ivory">Privacy</a></li>
+            <li><a href="#" class="hover:text-brand-ivory">Terms</a></li>
+            <li><a href="#" class="hover:text-brand-ivory">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mb-3 font-semibold text-brand-ivory">Newsletter</h4>
+          <form id="cta-form" class="mx-auto mt-6 flex max-w-xl flex-col items-center gap-3 sm:flex-row">
+            <label for="cta-email" class="sr-only">Email</label>
+            <input id="cta-email" type="email" required placeholder="you@company.com" class="w-full flex-1 rounded-lg border border-neutral-800 bg-brand-black px-4 py-3 text-sm outline-none ring-[#CBA135]/40 placeholder:text-neutral-500 focus:ring-2">
+            <button type="submit" class="w-full rounded-lg bg-[#CBA135] px-5 py-3 text-sm font-semibold text-black hover:opacity-90 sm:w-auto">  Book call
+            </button>
+         </form>
+         <p id="cta-msg" class="mt-2 text-xs text-neutral-500"></p>
+        </div>
+      </div>
+      <p class="mt-8 text-xs text-neutral-500">&copy; <span id="year"></span> Mackiavelli Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+  
+<!-- JS for toggling -->
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const featuresBtn = document.getElementById('mobile-features-btn');
+  const featuresMenu = document.getElementById('mobile-features-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  featuresBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    featuresMenu.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+      featuresMenu.classList.add('hidden');
+    }
+  });
+</script>
+  
   <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
