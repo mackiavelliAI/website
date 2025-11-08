@@ -45,27 +45,18 @@
   </style>
 </head>
 <body class="bg-brand-black text-brand-ivory antialiased">
+  
   <!-- Sticky Navbar -->
-  <header id="navbar" class="sticky top-0 z-50 border-b border-neutral-800/60 bg-brand-gold/80 backdrop-blur supports-[backdrop-filter]:bg-brand-black/60">
+  <header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <!-- nav bar -->
-    <nav class="relative flex items-center w-full py-3 px-6 bg-black rounded-xl">
-      <!-- Left: Logo (clickable) -->
-      <a href="index.html" class="absolute left-6 font-cinzel text-lg font-bold text-[#CBA135] tracking-wide hover:opacity-80">
+    <nav class="relative flex h-14 items-center">
+      <!-- Left: Logo -->
+      <a href="index.html" class="font-cinzel text-lg font-bold tracking-wide text-[#CBA135] hover:opacity-80">
         Mackiavelli
       </a>
 
-      <!-- Hamburger (mobile only) -->
-      <button id="menu-btn" class="block md:hidden text-brand-ivory focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round"
-                d="M4 6h16M4 12h16m0 6H4" />
-        </svg>
-      </button>
-      
-      <!-- Center: Menu (desktop) -->
-      <div class="mx-auto flex items-center gap-8 text-brand-ivory font-semibold">
+      <!-- Center: desktop menu -->
+      <div id="menu-desktop" class="hidden md:flex items-center gap-8 font-semibold text-brand-ivory mx-auto">
         <div class="relative group">
           <button class="hover:text-brand-gold">Features ▾</button>
           <div class="absolute left-0 top-full mt-2 hidden w-48 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg group-hover:block z-50">
@@ -76,32 +67,37 @@
             <a href="voice.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
           </div>
         </div>
-
         <a href="#how-it-works" class="hover:text-brand-gold">How it works</a>
         <a href="#results" class="hover:text-brand-gold">Results</a>
       </div>
 
-      <!-- Right: CTA -->
-      <a href="#cta" class="absolute right-6 bg-brand-gold text-black px-4 py-2 rounded-md font-semibold hover:opacity-90">
+      <!-- Right: desktop CTA -->
+      <a href="#cta"
+         class="hidden md:inline-flex bg-[#CBA135] text-black px-4 py-2 rounded-md font-semibold hover:opacity-90">
         Book a call
       </a>
+
+      <!-- Right: hamburger (mobile only) -->
+      <button id="menu-btn" class="md:hidden ml-auto p-2 text-brand-ivory" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </nav>
 
-      <!-- Mobile dropdown (hidden by default) -->
-    <div id="mobile-menu" class="hidden flex-col space-y-4 mt-4 text-brand-ivory font-semibold md:hidden">
-      <a href="faqs.html" class="block hover:text-brand-gold">FAQs</a>
-      <a href="booking.html" class="block hover:text-brand-gold">Booking</a>
-      <a href="email.html" class="block hover:text-brand-gold">Email</a>
-      <a href="chat.html" class="block hover:text-brand-gold">Chat</a>
-      <a href="voice.html" class="block hover:text-brand-gold">Voice</a>
-      <a href="#how-it-works" class="block hover:text-brand-gold">How it works</a>
-      <a href="#results" class="block hover:text-brand-gold">Results</a>
-      <a href="#cta" class="block bg-brand-gold text-black text-center px-4 py-2 rounded-md font-semibold hover:opacity-90">
-        Book a call
-      </a>
+    <!-- Mobile drawer -->
+    <div id="menu-mobile" class="md:hidden hidden flex-col gap-4 py-3 font-semibold text-brand-ivory">
+      <a href="faqs.html" class="hover:text-brand-gold">FAQs</a>
+      <a href="booking.html" class="hover:text-brand-gold">Booking</a>
+      <a href="email.html" class="hover:text-brand-gold">Email</a>
+      <a href="chat.html" class="hover:text-brand-gold">Chat</a>
+      <a href="voice.html" class="hover:text-brand-gold">Voice</a>
+      <a href="#how-it-works" class="hover:text-brand-gold">How it works</a>
+      <a href="#results" class="hover:text-brand-gold">Results</a>
+      <a href="#cta" class="bg-[#CBA135] text-black px-4 py-2 rounded-md text-center">Book a call</a>
     </div>
   </div>
-  </header>
+</header>
 
   <main id="top" class="overflow-x-clip">
     <!-- Hero -->
@@ -141,7 +137,7 @@
       </div>
     </section>
 
-    <section id="Features" class="py-12">
+    <section id="features" class="py-12">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-2xl font-bold text-brand-ivory md:text-3xl">Possible Features</h2>
         <p class="mt-2 text-center text-neutral-400">One‑time setup and monthly hosting & support. Cancel anytime.</p>
@@ -426,25 +422,25 @@
         </div>
         <div>
           <h4 class="mb-3 font-semibold text-brand-ivory">Newsletter</h4>
-          <form class="flex gap-2">
-            <input type="email" placeholder="Email address" class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-sm placeholder:text-neutral-500 focus:ring-2 focus:ring-[#CBA135]/40" >
-            <button class="rounded-lg border border-neutral-800 px-3 py-2 text-sm hover:bg-neutral-900 text-[#CBA135]">Join</button>
-          </form>
+          <form id="cta-form" class="mx-auto mt-6 flex max-w-xl flex-col items-center gap-3 sm:flex-row">
+            <label for="cta-email" class="sr-only">Email</label>
+            <input id="cta-email" type="email" required placeholder="you@company.com" class="w-full flex-1 rounded-lg border border-neutral-800 bg-brand-black px-4 py-3 text-sm outline-none ring-[#CBA135]/40 placeholder:text-neutral-500 focus:ring-2">
+            <button type="submit" class="w-full rounded-lg bg-[#CBA135] px-5 py-3 text-sm font-semibold text-black hover:opacity-90 sm:w-auto">  Book call
+            </button>
+         </form>
+         <p id="cta-msg" class="mt-2 text-xs text-neutral-500"></p>
         </div>
       </div>
       <p class="mt-8 text-xs text-neutral-500">&copy; <span id="year"></span> Mackiavelli Ltd. All rights reserved.</p>
     </div>
   </footer>
   
-<!-- ✨ JS toggle -->
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+<!-- JS: toggle mobile drawer -->
+<script>
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('menu-mobile').classList.toggle('hidden');
+  });
+</script>
   
   <script type="text/javascript">
   (function(d, t) {
