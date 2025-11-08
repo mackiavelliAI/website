@@ -47,37 +47,39 @@
 <body class="bg-brand-black text-brand-ivory antialiased">
   <!-- Sticky Navbar -->
   <header id="navbar" class="sticky top-0 z-50 border-b border-neutral-800/60 bg-brand-gold/80 backdrop-blur supports-[backdrop-filter]:bg-brand-black/60">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-14 items-center justify-between">
-       <nav class="flex items-center justify-between py-4 px-8 bg-black rounded-xl max-w-7xl mx-auto">
-  <!-- Left: Logo -->
-         <a href="index.html">
-         <span class="font-cinzel text-lg font-bold text-[#CBA135] tracking-wide">Mackiavelli</span>
-         </a>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- nav bar -->
+    <nav class="relative flex items-center w-full py-3 px-6 bg-black rounded-xl">
+      <!-- Left: Logo (clickable) -->
+      <a href="index.html" class="absolute left-6 font-cinzel text-lg font-bold text-[#CBA135] tracking-wide hover:opacity-80">
+        Mackiavelli
+      </a>
 
-  <!-- Center: Menu -->
-         <div class="flex items-center gap-8 text-brand-ivory font-semibold">
-           <div class="relative group">
-             <button class="hover:text-brand-gold">Features ▾</button>
-               <div class="absolute left-0 top-full mt-2 hidden w-48 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg group-hover:block">
-                 <a href="faqs.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
-                 <a href="booking.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
-                 <a href="email.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
-                 <a href="chat.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
-                 <a href="voice.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
-               </div>
-           </div>
+      <!-- Center: Menu (stays centered no matter edge widths) -->
+      <div class="mx-auto flex items-center gap-8 text-brand-ivory font-semibold">
+        <div class="relative group">
+          <button class="hover:text-brand-gold">Features ▾</button>
+          <div class="absolute left-0 top-full mt-2 hidden w-48 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg group-hover:block z-50">
+            <a href="faqs.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
+            <a href="booking.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
+            <a href="email.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
+            <a href="chat.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
+            <a href="voice.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
+          </div>
+        </div>
 
-                <a href="#how-it-works" class="hover:text-brand-gold">How it works</a>
-                <a href="#results" class="hover:text-brand-gold">Results</a>
-         </div>
-
-  <!-- Right: CTA -->
-                <a href="#cta" class="bg-brand-gold text-black px-4 py-2 rounded-md font-semibold hover:opacity-90">Book a call></a>
-        </nav>
+        <a href="#how-it-works" class="hover:text-brand-gold">How it works</a>
+        <a href="#results" class="hover:text-brand-gold">Results</a>
       </div>
-    </div>
-  </header>
+
+      <!-- Right: CTA -->
+      <a href="#cta" class="absolute right-6 bg-brand-gold text-black px-4 py-2 rounded-md font-semibold hover:opacity-90">
+        Book a call
+      </a>
+    </nav>
+  </div>
+</header>
+
 
   <main id="top" class="overflow-x-clip">
     <!-- Hero -->
