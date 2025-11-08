@@ -70,25 +70,26 @@
     </nav>
 
     <!-- Mobile Menu (dropdown when hamburger clicked) -->
-    <div id="mobile-menu" class="hidden flex-col gap-3 py-3 text-brand-ivory font-semibold md:hidden">
+    <div id="mobile-menu" class="hidden flex flex-wrap justify-center items-center gap-6 py-3 text-brand-ivory font-semibold md:hidden">
+
       <div class="relative">
-        <button id="mobile-features-btn" class="flex items-center gap-1">
-          Features
-          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-          </svg>
-        </button>
-        <div id="mobile-features-menu" class="hidden mt-2 flex-col rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
-          <a href="faqs.html"    class="px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
-          <a href="booking.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
-          <a href="email.html"   class="px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
-          <a href="chat.html"    class="px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
-          <a href="voice.html"   class="px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
-        </div>
+        <button id="mobile-features-btn" class="flex items-center gap-1 hover:text-[#CBA135]">Features
+         <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+           <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+         </svg>
+       </button>
+      <div id="mobile-features-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 flex-col rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
+        <a href="faqs.html" class="px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
+        <a href="booking.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
+        <a href="email.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
+        <a href="chat.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
+        <a href="voice.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
       </div>
-      <a href="#how-it-works" class="hover:text-[#CBA135]">How it works</a>
-      <a href="#results" class="hover:text-[#CBA135]">Results</a>
     </div>
+
+    <a href="#how-it-works" class="hover:text-[#CBA135]">How it works</a>
+    <a href="#results" class="hover:text-[#CBA135]">Results</a>
+  </div>
 
     <!-- Desktop Navbar -->
     <nav class="hidden md:flex items-center justify-between py-4">
