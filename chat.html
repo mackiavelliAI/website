@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="favicon-48.png" />
   <title>Mackiavelli — Customized AI Systems that Work</title>
   <meta name="description" content="Mackiavelli packages independent engineers' AI systems into guaranteed, productized solutions with hosting, QA, and support." />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
   <!-- Tailwind Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,6 +24,9 @@
               red: '#D43F3A'
             }
           },
+          fontFamily: { 
+            cinzel: ['Cinzel', 'serif'],  // new font
+          },
           boxShadow: {
             'elev': '0 10px 30px -10px rgba(0,0,0,0.35)'
           }
@@ -35,26 +40,26 @@
     .bento { display:grid; gap:1rem; grid-template-columns: repeat(6, minmax(0,1fr)); }
     @media (min-width: 768px) { .bento { gap:1.25rem; } }
     html { scroll-behavior: smooth; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="bg-brand-black text-brand-ivory antialiased">
   <!-- Sticky Navbar -->
-  <header id="navbar" class="sticky top-0 z-50 border-b border-neutral-800/60 bg-brand-black/80 backdrop-blur supports-[backdrop-filter]:bg-brand-black/60">
+  <header id="navbar" class="sticky top-0 z-50 border-b border-neutral-800/60 bg-brand-gold/80 backdrop-blur supports-[backdrop-filter]:bg-brand-black/60">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-14 items-center justify-between">
         <a href="#top" class="inline-flex items-center gap-2 font-semibold">
-          <span class="inline-block h-6 w-6 rounded bg-\[#CBA135\]" ></span>
-          <span class="tracking-wide">Mackiavelli</span>
+          <span class="font-cinzel text-lg font-bold text-[#CBA135] tracking-wide">Mackiavelli</span>
+        </a>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#features" class="hover:text-brand-ivory/90">Benefits</a>
-          <a href="#how" class="hover:text-brand-ivory/90">How it works</a>
-          <a href="#pricing" class="hover:text-brand-ivory/90">Pricing</a>
-          <a href="#testimonials" class="hover:text-brand-ivory/90">Results</a>
-          <a href="#faq" class="hover:text-brand-ivory/90">FAQ</a>
+          <a href="#features" class="hover:text-brand-ivory/90 font-extrabold">Features</a>
+          <a href="#how" class="hover:text-brand-ivory/90 font-extrabold">How it works</a>
+          <a href="#testimonials" class="hover:text-brand-ivory/90 font-extrabold">Results</a>
         </nav>
         <div class="flex items-center gap-2">
-          <a href="#cta" class="inline-block rounded-lg bg-\[#CBA135\] px-3.5 py-1.5 text-sm font-medium text-black hover:opacity-90" >Book a call</a>
+          <a href="#cta" class="inline-block rounded-lg bg-[#CBA135] px-3.5 py-1.5 text-sm font-extrabold text-black hover:opacity-90" >Book a call</a>
         </div>
       </div>
     </div>
@@ -68,19 +73,24 @@
         <div class="grid items-center gap-10 md:grid-cols-2">
           <div>
             <p class="mb-3 text-xs uppercase tracking-wider text-neutral-400">
-              Productized AI systems • Hosting • QA • Support
+              Creating • Hosting • Supporting
             </p>
             <h1 class="text-3xl font-extrabold leading-tight text-brand-ivory md:text-5xl">
-              Deploy proven <span class="text-\[#CBA135\]" >AI agents</span> that book, follow up, and automate work —
-              with accountability.
+              <!--Deploy proven <span class="text-[#CBA135]" >AI agents</span> that automate work —
+              with accountability.-->
+              Deploy customized <span class="text-[#CBA135]">AI agents</span> - transforming your Business.
             </h1>
             <p class="mt-4 max-w-xl text-neutral-300">
-              Mackiavelli turns independent engineers’ builds into reliable, branded systems. You get outcomes — not freelancers.
-              We package, host, and support your automations end‑to‑end.
+              A suite of products designed, implemented, and maintained under one platform. Eliminate repetitive admin, optimize workflows and leverage time to focus on what matters most. 
+              <!--Mackiavelli offers a suite of products that automate work with accountability. 
+              We design, package, and maintain your automations end-to-end.
+             <!-- Mackiavelli transforms independent engineers’ creations into powerful, branded systems. 
+             You don’t get freelancers — you get outcomes.
+             We design, package, and maintain your automations end-to-end.-->
             </p>
 
             <div class="mt-6 flex flex-wrap items-center gap-3">
-              <a href="#cta" class="rounded-lg bg-\[#CBA135\] px-5 py-3 text-sm font-semibold text-black shadow-elev hover:opacity-90" >Book a discovery call</a>
+              <a href="#cta" class="rounded-lg bg-[#CBA135] border border-neutral-800 px-5 py-3 text-sm font-semibold hover:bg-neutral-900" >Book a discovery call</a>
               <a href="#demo" class="rounded-lg border border-neutral-800 px-5 py-3 text-sm font-semibold hover:bg-neutral-900">See a 2‑min demo</a>
               <p class="ml-2 text-xs text-neutral-400">No obligation • Typical launch in ~3 weeks</p>
             </div>
