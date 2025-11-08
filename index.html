@@ -55,7 +55,16 @@
         Mackiavelli
       </a>
 
-      <!-- Center: Menu (stays centered no matter edge widths) -->
+      <!-- Hamburger (mobile only) -->
+      <button id="menu-btn" class="block md:hidden text-brand-ivory focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16m0 6H4" />
+        </svg>
+      </button>
+      
+      <!-- Center: Menu (desktop) -->
       <div class="mx-auto flex items-center gap-8 text-brand-ivory font-semibold">
         <div class="relative group">
           <button class="hover:text-brand-gold">Features ▾</button>
@@ -77,9 +86,22 @@
         Book a call
       </a>
     </nav>
-  </div>
-</header>
 
+      <!-- Mobile dropdown (hidden by default) -->
+    <div id="mobile-menu" class="hidden flex-col space-y-4 mt-4 text-brand-ivory font-semibold md:hidden">
+      <a href="faqs.html" class="block hover:text-brand-gold">FAQs</a>
+      <a href="booking.html" class="block hover:text-brand-gold">Booking</a>
+      <a href="email.html" class="block hover:text-brand-gold">Email</a>
+      <a href="chat.html" class="block hover:text-brand-gold">Chat</a>
+      <a href="voice.html" class="block hover:text-brand-gold">Voice</a>
+      <a href="#how-it-works" class="block hover:text-brand-gold">How it works</a>
+      <a href="#results" class="block hover:text-brand-gold">Results</a>
+      <a href="#cta" class="block bg-brand-gold text-black text-center px-4 py-2 rounded-md font-semibold hover:opacity-90">
+        Book a call
+      </a>
+    </div>
+  </div>
+  </header>
 
   <main id="top" class="overflow-x-clip">
     <!-- Hero -->
@@ -413,6 +435,17 @@
       <p class="mt-8 text-xs text-neutral-500">&copy; <span id="year"></span> Mackiavelli Ltd. All rights reserved.</p>
     </div>
   </footer>
+  
+<!-- ✨ JS toggle -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  
   <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
