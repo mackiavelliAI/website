@@ -44,21 +44,69 @@
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('menu-btn');
+  const panel = document.getElementById('menu-panel');
+  const featBtn = document.getElementById('features-btn');
+  const featMenu = document.getElementById('features-menu');
+
+  // Toggle slide-down panel
+  btn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = panel.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // always close features when panel toggles
+    featMenu?.classList.add('hidden');
+    featBtn?.setAttribute('aria-expanded', 'false');
+  });
+
+  // Toggle features dropdown
+  featBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = featMenu.classList.toggle('hidden') === false;
+    featBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Close on outside click / ESC
+  document.addEventListener('click', (e) => {
+    if (!panel.classList.contains('hidden') &&
+        !panel.contains(e.target) &&
+        !btn.contains(e.target)) {
+      panel.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      featMenu?.classList.add('hidden');
+      featBtn?.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      panel?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      featMenu?.classList.add('hidden');
+      featBtn?.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+</script>  
+  
 <body class="bg-brand-black text-brand-ivory antialiased">
   <!-- Sticky Navbar -->
   <header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-    <!-- Always-on top bar: hamburger | centered logo | CTA -->
+    <!-- Top bar: hamburger | centered logo | CTA -->
     <nav class="grid grid-cols-3 items-center h-14">
       <!-- Left: Hamburger -->
-      <button id="menu-btn" class="p-2 text-brand-ivory relative z-50">
+      <button id="menu-btn"
+              class="justify-self-start p-2 text-brand-ivory relative z-50"
+              aria-label="Open menu" aria-expanded="false" aria-controls="menu-panel">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
 
-      <!-- Center: Logo (stays perfectly centered) -->
+      <!-- Center: Logo -->
       <a href="index.html" class="justify-self-center font-cinzel text-lg font-bold tracking-wide text-[#CBA135]">
         Mackiavelli
       </a>
@@ -69,20 +117,19 @@
       </a>
     </nav>
 
-    <!-- Slide-down menu (shows when hamburger is tapped) -->
+    <!-- Slide-down menu -->
     <div id="menu-panel" class="hidden py-3 relative z-40">
-      <!-- Row with the 3 items inline, centered -->
       <div class="flex flex-wrap justify-center items-center gap-8 text-brand-ivory font-semibold">
         <!-- Features with dropdown -->
         <div class="relative">
-          <button id="features-btn" class="flex items-center gap-1 hover:text-[#CBA135]">
+          <button id="features-btn" class="flex items-center gap-1 hover:text-[#CBA135]" aria-expanded="false" aria-controls="features-menu">
             Features
             <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
             </svg>
           </button>
-          <!-- Features dropdown -->
-          <div id="features-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
+          <div id="features-menu"
+               class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
             <a href="faqs.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
             <a href="booking.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
             <a href="email.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
