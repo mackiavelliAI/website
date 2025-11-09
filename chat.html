@@ -48,7 +48,6 @@
   <!-- Sticky Navbar -->
   <header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
     <!-- Mobile / Tablet Navbar -->
     <nav class="flex h-14 items-center justify-between md:hidden">
       <!-- Left: Hamburger -->
@@ -69,31 +68,33 @@
       </a>
     </nav>
 
-    <!-- Mobile Menu (dropdown when hamburger clicked) -->
-    <div id="mobile-menu" class="hidden flex flex-wrap justify-center items-center gap-6 py-3 text-brand-ivory font-semibold md:hidden">
-
+    <!-- Mobile Menu (shown when hamburger is tapped) -->
+    <div id="mobile-menu" class="hidden md:hidden flex flex-wrap justify-center items-center gap-6 py-3 text-brand-ivory font-semibold">
+      <!-- Features (tap to open) -->
       <div class="relative">
-        <button id="mobile-features-btn" class="flex items-center gap-1 hover:text-[#CBA135]">Features
-         <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-           <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-         </svg>
-       </button>
-      <div id="mobile-features-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 flex-col rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
-        <a href="faqs.html" class="px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
-        <a href="booking.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
-        <a href="email.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
-        <a href="chat.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
-        <a href="voice.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
+        <button id="mobile-features-btn" class="flex items-center gap-1 hover:text-[#CBA135]">
+          Features
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <div id="mobile-features-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 flex-col rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
+          <a href="faqs.html"    class="px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
+          <a href="booking.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
+          <a href="email.html"   class="px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
+          <a href="chat.html"    class="px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
+          <a href="voice.html"   class="px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
+        </div>
       </div>
-    </div>
 
-    <a href="index.html#how" class="hover:text-[#CBA135]">How it works</a>
-    <a href="index.html#results" class="hover:text-[#CBA135]">Results</a>
-  </div>
+      <!-- These two MUST stay inside #mobile-menu -->
+      <a href="index.html#how"     class="hover:text-[#CBA135]">How it works</a>
+      <a href="index.html#results" class="hover:text-[#CBA135]">Results</a>
+    </div>
 
     <!-- Desktop Navbar -->
     <nav class="hidden md:flex items-center justify-between py-4">
-      <!-- Left: Features Dropdown -->
+      <!-- Left: Links + dropdown -->
       <div class="flex items-center gap-8 text-brand-ivory font-semibold">
         <div class="relative group">
           <button class="hover:text-[#CBA135]">Features ▾</button>
@@ -105,8 +106,9 @@
             <a href="voice.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
           </div>
         </div>
-        <a href="#how-it-works" class="hover:text-[#CBA135]">How it works</a>
-        <a href="#results" class="hover:text-[#CBA135]">Results</a>
+        <!-- Use absolute path so they work from any page -->
+        <a href="index.html#how"     class="hover:text-[#CBA135]">How it works</a>
+        <a href="index.html#results" class="hover:text-[#CBA135]">Results</a>
       </div>
 
       <!-- Center: Logo -->
@@ -121,6 +123,27 @@
     </nav>
   </div>
 </header>
+
+<script>
+  // Mobile toggles
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const featuresBtn = document.getElementById('mobile-features-btn');
+  const featuresMenu = document.getElementById('mobile-features-menu');
+
+  if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  if (featuresBtn) featuresBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    featuresMenu.classList.toggle('hidden');
+  });
+  document.addEventListener('click', (e) => {
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')
+        && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+      featuresMenu && featuresMenu.classList.add('hidden');
+    }
+  });
+</script>
 
 
   <main id="top" class="overflow-x-clip">
