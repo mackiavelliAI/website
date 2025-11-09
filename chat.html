@@ -288,6 +288,34 @@
     }
   });
 </script>
+
+  <script>
+  // toggle the slide-down panel
+  const menuBtn = document.getElementById('menu-btn');
+  const menuPanel = document.getElementById('menu-panel');
+  const featuresBtn = document.getElementById('features-btn');
+  const featuresMenu = document.getElementById('features-menu');
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuPanel.classList.toggle('hidden');
+    // close features dropdown when panel toggles
+    featuresMenu.classList.add('hidden');
+  });
+
+  featuresBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    featuresMenu.classList.toggle('hidden');
+  });
+
+  // close menus on outside click
+  document.addEventListener('click', (e) => {
+    if (!menuPanel.contains(e.target) && !menuBtn.contains(e.target)) {
+      menuPanel.classList.add('hidden');
+      featuresMenu.classList.add('hidden');
+    }
+  });
+</script>
   
   <script type="text/javascript">
   (function(d, t) {
