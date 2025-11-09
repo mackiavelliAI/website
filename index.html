@@ -434,42 +434,6 @@
       <p class="mt-8 text-xs text-neutral-500">&copy; <span id="year"></span> Mackiavelli Ltd. All rights reserved.</p>
     </div>
   </footer>
-  <script>
-  // Smooth scroll for CTA without changing URL hash
-  const ctaLink = document.getElementById('cta-link');
-  ctaLink?.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector(ctaLink.dataset.target || '#cta');
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-
-  // Force top on refresh (iOS Safari included)
-  window.addEventListener('pageshow', (e) => {
-    const nav = performance.getEntriesByType('navigation')[0];
-    const isReload = nav?.type === 'reload' || e.persisted;
-    if (isReload) {
-      history.replaceState(null, '', location.pathname + location.search); // strip any hash
-      window.scrollTo(0, 0);
-    }
-  });
-</script>
-<script>
-window.addEventListener('pageshow', (event) => {
-  // Detect reload or back/forward cache restore
-  const nav = performance.getEntriesByType('navigation')[0];
-  const isReload = nav?.type === 'reload' || event.persisted;
-
-  if (isReload) {
-    // Remove any #hash from the URL
-    history.replaceState(null, '', location.pathname + location.search);
-
-    // iOS/Safari needs a small delay to override scroll restore
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 50);
-  }
-});
-</script>
   
 <!-- JS for toggling -->
 <script>
@@ -580,5 +544,22 @@ document.getElementById("cta-form").addEventListener("submit", async (e) => {
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+window.addEventListener('pageshow', (event) => {
+  // Detect reload or back/forward cache restore
+  const nav = performance.getEntriesByType('navigation')[0];
+  const isReload = nav?.type === 'reload' || event.persisted;
+
+  if (isReload) {
+    // Remove any #hash from the URL
+    history.replaceState(null, '', location.pathname + location.search);
+
+    // iOS/Safari needs a small delay to override scroll restore
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 50);
+  }
+});
+</script>
 </body>
 </html>
