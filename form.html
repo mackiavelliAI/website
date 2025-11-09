@@ -267,6 +267,46 @@
   </form>
 </section>
 
+  <!-- JS for toggling -->
+<<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn    = document.getElementById('menu-btn');
+  const menuPanel  = document.getElementById('menu-panel');
+  const featuresBtn = document.getElementById('features-btn');
+  const featuresMenu = document.getElementById('features-menu');
+
+  if (menuBtn && menuPanel) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuPanel.classList.toggle('hidden');
+      featuresMenu?.classList.add('hidden');
+    });
+  }
+
+  if (featuresBtn && featuresMenu) {
+    featuresBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      featuresMenu.classList.toggle('hidden');
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!menuPanel?.classList.contains('hidden') &&
+        !menuPanel.contains(e.target) &&
+        !menuBtn.contains(e.target)) {
+      menuPanel.classList.add('hidden');
+      featuresMenu?.classList.add('hidden');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      menuPanel?.classList.add('hidden');
+      featuresMenu?.classList.add('hidden');
+    }
+  });
+});
+</script>
 <script>
   // Enable/disable "Other" field
   const otherChk = document.getElementById('challengeOtherChk');
