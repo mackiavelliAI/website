@@ -434,6 +434,25 @@
       <p class="mt-8 text-xs text-neutral-500">&copy; <span id="year"></span> Mackiavelli Ltd. All rights reserved.</p>
     </div>
   </footer>
+<script>
+  // Smooth scroll for CTA without changing URL hash
+  const ctaLink = document.getElementById('cta-link');
+  ctaLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(ctaLink.dataset.target || '#cta');
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // Force top on refresh (iOS Safari included)
+  window.addEventListener('pageshow', (e) => {
+    const nav = performance.getEntriesByType('navigation')[0];
+    const isReload = nav?.type === 'reload' || e.persisted;
+    if (isReload) {
+      history.replaceState(null, '', location.pathname + location.search); // strip any hash
+      window.scrollTo(0, 0);
+    }
+  });
+</script>
   
 <!-- JS for toggling -->
 <script>
