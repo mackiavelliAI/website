@@ -107,9 +107,12 @@
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
             </svg>
           </button>
-          <div id="features-menu"
-               class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
-            <a href="custom.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">Custom</a>
+          <div id="features-menu" class="hidden absolute top-full 
+            mt-2 z-50 left-0 translate-x-0     <!-- mobile: align to left of button -->
+            md:left-0 md:translate-x-0         <!-- desktop: same anchor -->
+            w-[min(92vw,18rem)] md:w-56        <!-- mobile: max ~92vw; desktop: fixed 14rem -->
+            max-h-[60vh] overflow-y-auto       <!-- scroll if tall -->
+            rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
             <a href="faqs.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
             <a href="booking.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
             <a href="email.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
