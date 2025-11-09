@@ -43,6 +43,26 @@
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
+
+  <style>
+    #rotating-word {
+      display:inline-block;
+      min-width: 6.5ch; /* enough room for "Custom" */
+      position: relative;
+      transition: opacity .35s ease, transform .35s ease;
+   }
+   #rotating-word.is-out {
+     opacity: 0;
+     transform: translateY(-0.25em);
+   }
+   #rotating-word.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+    @media (prefers-reduced-motion: reduce) {
+  #rotating-word { transition: none; }
+  }
+</style>
 </head>
 
 <script>
@@ -179,10 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
               Creating • Hosting • Supporting
             </p>
             <h1 class="text-3xl font-extrabold leading-tight text-brand-ivory md:text-5xl">
-              Deploy a customized <span class="text-[#CBA135]">AI Chat agents</span> - engage every visitor instantly.
-            </h1>
-            <p class="mt-4 max-w-xl text-neutral-300">
-              An intelligent conversational system that captures leads, answers questions, and guides customers 24/7 — all in your brand’s voice. Reduce response times, qualify prospects automatically, and turn conversations into conversions. 
+              Deploy a customized <span class="text-[#CBA135]" id="rotating-word" aria-live="polite">An intelligent conversational system that captures leads, answers questions, and guides customers 24/7 — all in your brand’s voice. Reduce response times, qualify prospects automatically, and turn conversations into conversions. 
 
             </p>
 
@@ -423,5 +440,27 @@ document.getElementById("cta-form").addEventListener("submit", async (e) => {
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-</body>
+                <script>
+(function rotateWord() {
+  const words = ["FAQ", "Booking", "Email", "Chat", "Voice", "Custom"];
+     const el = document.getElementById("rotating-word");
+      let i = 0, delay = 2200;
+
+      function tick() {
+        el.classList.remove("is-in");
+        el.classList.add("is-out");
+
+       setTimeout(() => {
+          i = (i + 1) % words.length;
+          el.textContent = words[i];
+          el.classList.remove("is-out");
+          el.classList.add("is-in");
+        }, 350);
+      }
+
+      el.classList.add("is-in");
+      setInterval(tick, delay);
+      })();
+    </script>
+  </body>
 </html>
