@@ -34,62 +34,7 @@
       }
     }
   </script>
-
- <style>
-    /* Bento grid aspect helpers */
-    .bento { display:grid; gap:1rem; grid-template-columns: repeat(6, minmax(0,1fr)); }
-    @media (min-width: 768px) { .bento { gap:1.25rem; } }
-    html { scroll-behavior: smooth; }
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
-</head>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('menu-btn');
-  const panel = document.getElementById('menu-panel');
-  const featBtn = document.getElementById('features-btn');
-  const featMenu = document.getElementById('features-menu');
-
-  // Toggle slide-down panel
-  btn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = panel.classList.toggle('hidden') === false;
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    // always close features when panel toggles
-    featMenu?.classList.add('hidden');
-    featBtn?.setAttribute('aria-expanded', 'false');
-  });
-
-  // Toggle features dropdown
-  featBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = featMenu.classList.toggle('hidden') === false;
-    featBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  // Close on outside click / ESC
-  document.addEventListener('click', (e) => {
-    if (!panel.classList.contains('hidden') &&
-        !panel.contains(e.target) &&
-        !btn.contains(e.target)) {
-      panel.classList.add('hidden');
-      btn.setAttribute('aria-expanded', 'false');
-      featMenu?.classList.add('hidden');
-      featBtn?.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      panel?.classList.add('hidden');
-      btn?.setAttribute('aria-expanded', 'false');
-      featMenu?.classList.add('hidden');
-      featBtn?.setAttribute('aria-expanded', 'false');
-    }
-  });
-});
-</script>  
+  
   
 <body class="bg-brand-black text-brand-ivory antialiased">
   <!-- Sticky Navbar -->
