@@ -435,23 +435,21 @@
     </div>
   </footer>
 <script>
-  // Smooth scroll for CTA without changing URL hash
-  const ctaLink = document.getElementById('cta-link');
-  ctaLink?.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector(ctaLink.dataset.target || '#cta');
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+window.addEventListener('pageshow', (event) => {
+  // Detect reload or back/forward cache restore
+  const nav = performance.getEntriesByType('navigation')[0];
+  const isReload = nav?.type === 'reload' || event.persisted;
 
-  // Force top on refresh (iOS Safari included)
-  window.addEventListener('pageshow', (e) => {
-    const nav = performance.getEntriesByType('navigation')[0];
-    const isReload = nav?.type === 'reload' || e.persisted;
-    if (isReload) {
-      history.replaceState(null, '', location.pathname + location.search); // strip any hash
-      window.scrollTo(0, 0);
-    }
-  });
+  if (isReload) {
+    // Remove any #hash from the URL
+    history.replaceState(null, '', location.pathname + location.search);
+
+    // iOS/Safari needs a small delay to override scroll restore
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 50);
+  }
+});
 </script>
   
 <!-- JS for toggling -->
