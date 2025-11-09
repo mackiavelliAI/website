@@ -35,7 +35,7 @@
     }
   </script>
 
- <style>
+  <style>
     /* Bento grid aspect helpers */
     .bento { display:grid; gap:1rem; grid-template-columns: repeat(6, minmax(0,1fr)); }
     @media (min-width: 768px) { .bento { gap:1.25rem; } }
@@ -43,77 +43,10 @@
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
-
-  <style>
-    #rotating-word {
-      display:inline-block;
-      min-width: 6.5ch; /* enough room for "Custom" */
-      position: relative;
-      transition: opacity .35s ease, transform .35s ease;
-   }
-   #rotating-word.is-out {
-     opacity: 0;
-     transform: translateY(-0.25em);
-   }
-   #rotating-word.is-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-    @media (prefers-reduced-motion: reduce) {
-  #rotating-word { transition: none; }
-  }
-</style>
 </head>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('menu-btn');
-  const panel = document.getElementById('menu-panel');
-  const featBtn = document.getElementById('features-btn');
-  const featMenu = document.getElementById('features-menu');
-
-  // Toggle slide-down panel
-  btn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = panel.classList.toggle('hidden') === false;
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    // always close features when panel toggles
-    featMenu?.classList.add('hidden');
-    featBtn?.setAttribute('aria-expanded', 'false');
-  });
-
-  // Toggle features dropdown
-  featBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = featMenu.classList.toggle('hidden') === false;
-    featBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-
-  // Close on outside click / ESC
-  document.addEventListener('click', (e) => {
-    if (!panel.classList.contains('hidden') &&
-        !panel.contains(e.target) &&
-        !btn.contains(e.target)) {
-      panel.classList.add('hidden');
-      btn.setAttribute('aria-expanded', 'false');
-      featMenu?.classList.add('hidden');
-      featBtn?.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      panel?.classList.add('hidden');
-      btn?.setAttribute('aria-expanded', 'false');
-      featMenu?.classList.add('hidden');
-      featBtn?.setAttribute('aria-expanded', 'false');
-    }
-  });
-});
-</script>  
-  
 <body class="bg-brand-black text-brand-ivory antialiased">
   <!-- Sticky Navbar -->
-  <header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Top bar: hamburger | centered logo | CTA -->
     <nav class="grid grid-cols-3 items-center h-14">
@@ -150,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </button>
           <div id="features-menu"
                class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
-            <a href="custom.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">Custom</a>
+            <a href="cutsom.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">Custom</a>
             <a href="faqs.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
             <a href="booking.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
             <a href="email.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
@@ -166,27 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </header>
 
-<script>
-  // Mobile toggles
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const featuresBtn = document.getElementById('mobile-features-btn');
-  const featuresMenu = document.getElementById('mobile-features-menu');
-
-  if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  if (featuresBtn) featuresBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    featuresMenu.classList.toggle('hidden');
-  });
-  document.addEventListener('click', (e) => {
-    if (mobileMenu && !mobileMenu.classList.contains('hidden')
-        && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      featuresMenu && featuresMenu.classList.add('hidden');
-    }
-  });
-</script>
-
 
   <main id="top" class="overflow-x-clip">
     <!-- Hero -->
@@ -199,8 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
               Creating • Hosting • Supporting
             </p>
             <h1 class="text-3xl font-extrabold leading-tight text-brand-ivory md:text-5xl">
-              Deploy a customized <span class="text-[#CBA135]" id="rotating-word" aria-live="polite">An intelligent conversational system that captures leads, answers questions, and guides customers 24/7 — all in your brand’s voice. Reduce response times, qualify prospects automatically, and turn conversations into conversions. 
-
+              <!--Deploy proven <span class="text-[#CBA135]" >AI agents</span> that automate work —
+              with accountability.-->
+              Deploy a customized <span class="text-[#CBA135]">AI Booking agent</span> - automate your calendar.
+            </h1>
+            <p class="mt-4 max-w-xl text-neutral-300">
+              An intelligent scheduling system that books, confirms, and reminds clients automatically — across chat, voice, and web. End the back-and-forth, eliminate no-shows, and free your team to focus on high-value work.
+              <!--Mackiavelli offers a suite of products that automate work with accountability. 
+              We design, package, and maintain your automations end-to-end.
+             <!-- Mackiavelli transforms independent engineers’ creations into powerful, branded systems. 
+             You don’t get freelancers — you get outcomes.
+             We design, package, and maintain your automations end-to-end.-->
             </p>
 
             <div class="mt-6 flex flex-wrap items-center gap-3">
@@ -222,24 +143,30 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </section>
-    
- <!-- Large left -->
+
+    <!-- Benefits (Bento) -->
+    <section id="features" class="py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center text-2xl font-bold text-brand-ivory md:text-3xl">Why Mackiavelli</h2>
+        <p class="mt-2 text-center text-neutral-400">Systems over freelancers. Outcomes over hours.</p>
+
         <div class="bento mt-8">
+          <!-- Large left -->
           <article class="col-span-6 md:col-span-3 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-            <h3 class="text-lg font-semibold text-brand-ivory">Launch Faster</h3>
-            <p class="mt-2 text-sm text-neutral-300">Productized agents deployed in weeks, not months.</p>
+            <h3 class="text-lg font-semibold text-brand-ivory">Launch faster</h3>
+            <p class="mt-2 text-sm text-neutral-300">Productized agents (Appointment, Email Activation, Support) deploy in weeks, not months.</p>
             <div class="mt-4 aspect-video rounded-xl bg-neutral-800"></div>
           </article>
 
           <!-- Two stack -->
           <article class="col-span-6 md:col-span-3 grid gap-4">
             <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-              <h3 class="text-lg font-semibold">Systemized Accountability</h3>
-              <p class="mt-2 text-sm text-neutral-300">Tested, documented, and supported. We stand behind every system.</p>
+              <h3 class="text-lg font-semibold">Accountability built‑in</h3>
+              <p class="mt-2 text-sm text-neutral-300">QA, documentation, and support are standard. We stand behind every system.</p>
               <div class="mt-4 h-20 rounded bg-neutral-800"></div>
             </div>
             <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-              <h3 class="text-lg font-semibold">No lock-in. No leash.</h3>
+              <h3 class="text-lg font-semibold">No vendor lock‑in</h3>
               <p class="mt-2 text-sm text-neutral-300">You own your data and instances. We host, or we hand over. Your call.</p>
               <div class="mt-4 h-20 rounded bg-neutral-800"></div>
             </div>
@@ -247,8 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- Three small -->
           <article class="col-span-6 md:col-span-2 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-            <h3 class="text-base font-semibold">Lower risk. Higher consistency.</h3>
-            <p class="mt-2 text-sm text-neutral-300">Standardized systems mean fewer surprises — and no wasted rework.</p>
+            <h3 class="text-base font-semibold">Lower risk</h3>
+            <p class="mt-2 text-sm text-neutral-300">Standardized templates reduce surprises and rework.</p>
           </article>
           <article class="col-span-6 md:col-span-2 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
             <h3 class="text-base font-semibold">Security‑first</h3>
@@ -256,8 +183,79 @@ document.addEventListener('DOMContentLoaded', () => {
           </article>
           <article class="col-span-6 md:col-span-2 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
             <h3 class="text-base font-semibold">Clear economics</h3>
-            <p class="mt-2 text-sm text-neutral-300">Setup plus MRR — predictable, transparent, and aligned with outcomes.</p>
+            <p class="mt-2 text-sm text-neutral-300">Setup + MRR — predictable, transparent, and aligned with outcomes.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing (Setup + Monthly) -->
+    <section id="pricing" class="py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-2xl font-bold text-brand-ivory md:text-3xl">Simple, outcome‑aligned pricing</h2>
+          <p class="mt-2 text-neutral-400">One‑time setup + monthly hosting & support. Cancel anytime.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <!-- Launch -->
+          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+            <p class="text-sm text-neutral-400">Launch</p>
+            <p class="mt-2 text-3xl font-bold text-brand-ivory">£2,500<span class="text-base font-medium text-neutral-400"> setup</span></p>
+            <p class="mt-1 text-sm text-neutral-400">£200/mo support</p>
+            <ul class="mt-4 space-y-2 text-sm text-neutral-300">
+              <li>1 productized agent (e.g., Appointment)</li>
+              <li>Standard integrations</li>
+              <li>Email support</li>
+            </ul>
+            <a href="#cta" class="mt-6 inline-block w-full rounded-lg bg-neutral-800 px-4 py-2 text-center text-sm font-semibold hover:bg-neutral-700">Choose Launch</a>
+          </div>
+
+          <!-- Growth (Most Popular) -->
+          <div class="rounded-2xl border border-[color:var(--gold,#CBA135)] bg-neutral-900/60 p-6 ring-1 ring-inset ring-\[#CBA135\]/30" >
+            <p class="text-sm" style="color:#CBA135">Most Popular</p>
+            <p class="mt-2 text-3xl font-bold text-brand-ivory">£4,000<span class="text-base font-medium text-neutral-400"> setup</span></p>
+            <p class="mt-1 text-sm text-neutral-400">£400/mo support</p>
+            <ul class="mt-4 space-y-2 text-sm text-neutral-300">
+              <li>Everything in Launch</li>
+              <li>Multi‑channel (email/SMS/WhatsApp)</li>
+              <li>Priority support + quarterly optimizations</li>
+            </ul>
+            <a href="#cta" class="mt-6 inline-block w-full rounded-lg bg-\[#CBA135\] px-4 py-2 text-center text-sm font-semibold text-black hover:opacity-90">Choose Growth</a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+            <p class="text-sm text-neutral-400">Enterprise</p>
+            <p class="mt-2 text-3xl font-bold text-brand-ivory">Custom</p>
+            <ul class="mt-4 space-y-2 text-sm text-neutral-300">
+              <li>Security reviews & SSO</li>
+              <li>Custom integrations & SLAs</li>
+              <li>Dedicated success manager</li>
+            </ul>
+            <a href="#cta" class="mt-6 inline-block w-full rounded-lg bg-neutral-800 px-4 py-2 text-center text-sm font-semibold hover:bg-neutral-700">Talk to sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Results -->
+    <section id="testimonials" class="py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center text-2xl font-bold text-brand-ivory md:text-3xl">Proven results</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <figure class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+            <blockquote class="text-neutral-300">“Bookings up 40% in month one. The agent handles follow‑ups 24/7.”</blockquote>
+            <figcaption class="mt-4 text-sm text-neutral-400">— Mortgage Brokerage, UK</figcaption>
+          </figure>
+          <figure class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+            <blockquote class="text-neutral-300">“We finally have a system, not a freelancer. Clean handover, real support.”</blockquote>
+            <figcaption class="mt-4 text-sm text-neutral-400">— COO, B2B Services</figcaption>
+          </figure>
+          <figure class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+            <blockquote class="text-neutral-300">“QA and documentation are elite. Deployments feel boring — in a good way.”</blockquote>
+            <figcaption class="mt-4 text-sm text-neutral-400">— Head of Ops, Agency</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -266,13 +264,13 @@ document.addEventListener('DOMContentLoaded', () => {
     <section id="cta" class="py-16">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="rounded-3xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-900/60 px-6 py-10 text-center md:px-12">
-          <h3 class="text-2xl font-bold text-brand-ivory md:text-3xl">Ready to automate?</h3>
+          <h3 class="text-2xl font-bold text-brand-ivory md:text-3xl">Ready to automate the boring work?</h3>
           <p class="mt-2 text-neutral-300">Book a 15‑minute discovery call. If there’s no fit, we’ll tell you straight.</p>
           <form class="mx-auto mt-6 flex max-w-xl flex-col items-center gap-3 sm:flex-row">
             <label for="email" class="sr-only">Email</label>
             <input id="email" type="email" required placeholder="you@company.com"
-                   class="w-full flex-1 rounded-lg border border-neutral-800 bg-brand-black px-4 py-3 text-sm outline-none ring-[#CBA135]/40 placeholder:text-neutral-500 focus:ring-2" >
-            <button type="submit" class="w-full rounded-lg bg-[#CBA135] px-5 py-3 text-sm font-semibold text-black hover:opacity-90 sm:w-auto" >Book call</button>
+                   class="w-full flex-1 rounded-lg border border-neutral-800 bg-brand-black px-4 py-3 text-sm outline-none ring-\[#CBA135\]/40 placeholder:text-neutral-500 focus:ring-2" >
+            <button type="submit" class="w-full rounded-lg bg-\[#CBA135\] px-5 py-3 text-sm font-semibold text-black hover:opacity-90 sm:w-auto" >Book call</button>
           </form>
           <p class="mt-2 text-xs text-neutral-500">By continuing, you agree to our <a href="#" class="underline">Terms</a> and <a href="#" class="underline">Privacy Policy</a>.</p>
         </div>
@@ -280,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </section>
   </main>
 
-  <!-- Footer -->
+ <!-- Footer -->
   <footer class="border-t border-neutral-800 py-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 md:grid-cols-4">
@@ -321,18 +319,21 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div>
           <h4 class="mb-3 font-semibold text-brand-ivory">Newsletter</h4>
-          <form class="flex gap-2">
-            <input type="email" placeholder="Email address" class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-sm placeholder:text-neutral-500 focus:ring-2 focus:ring-[#CBA135]/40" >
-            <button class="rounded-lg border border-neutral-800 px-3 py-2 text-sm hover:bg-neutral-900 text-[#CBA135]">Join</button>
-          </form>
+          <form id="cta-form" class="mx-auto mt-6 flex max-w-xl flex-col items-center gap-3 sm:flex-row">
+            <label for="cta-email" class="sr-only">Email</label>
+            <input id="cta-email" type="email" required placeholder="you@company.com" class="w-full flex-1 rounded-lg border border-neutral-800 bg-brand-black px-4 py-3 text-sm outline-none ring-[#CBA135]/40 placeholder:text-neutral-500 focus:ring-2">
+            <button type="submit" class="w-full rounded-lg bg-[#CBA135] px-5 py-3 text-sm font-semibold text-black hover:opacity-90 sm:w-auto">  Book call
+            </button>
+         </form>
+         <p id="cta-msg" class="mt-2 text-xs text-neutral-500"></p>
         </div>
       </div>
       <p class="mt-8 text-xs text-neutral-500">&copy; <span id="year"></span> Mackiavelli Ltd. All rights reserved.</p>
     </div>
   </footer>
+  
 <!-- JS for toggling -->
-
-  <script>
+<<script>
 document.addEventListener('DOMContentLoaded', () => {
   const menuBtn    = document.getElementById('menu-btn');
   const menuPanel  = document.getElementById('menu-panel');
@@ -440,27 +441,5 @@ document.getElementById("cta-form").addEventListener("submit", async (e) => {
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-                <script>
-(function rotateWord() {
-  const words = ["FAQ", "Booking", "Email", "Chat", "Voice", "Custom"];
-     const el = document.getElementById("rotating-word");
-      let i = 0, delay = 2200;
-
-      function tick() {
-        el.classList.remove("is-in");
-        el.classList.add("is-out");
-
-       setTimeout(() => {
-          i = (i + 1) % words.length;
-          el.textContent = words[i];
-          el.classList.remove("is-out");
-          el.classList.add("is-in");
-        }, 350);
-      }
-
-      el.classList.add("is-in");
-      setInterval(tick, delay);
-      })();
-    </script>
-  </body>
+</body>
 </html>
