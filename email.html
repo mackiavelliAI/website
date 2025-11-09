@@ -323,26 +323,43 @@
   
 <!-- JS for toggling -->
 <script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const featuresBtn = document.getElementById('mobile-features-btn');
-  const featuresMenu = document.getElementById('mobile-features-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn    = document.getElementById('menu-btn');
+  const menuPanel  = document.getElementById('menu-panel');
+  const featuresBtn = document.getElementById('features-btn');
+  const featuresMenu = document.getElementById('features-menu');
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
+  if (menuBtn && menuPanel) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuPanel.classList.toggle('hidden');
+      featuresMenu?.classList.add('hidden');
+    });
+  }
 
-  featuresBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    featuresMenu.classList.toggle('hidden');
-  });
+  if (featuresBtn && featuresMenu) {
+    featuresBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      featuresMenu.classList.toggle('hidden');
+    });
+  }
 
   document.addEventListener('click', (e) => {
-    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      featuresMenu.classList.add('hidden');
+    if (!menuPanel?.classList.contains('hidden') &&
+        !menuPanel.contains(e.target) &&
+        !menuBtn.contains(e.target)) {
+      menuPanel.classList.add('hidden');
+      featuresMenu?.classList.add('hidden');
     }
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      menuPanel?.classList.add('hidden');
+      featuresMenu?.classList.add('hidden');
+    }
+  });
+});
 </script>
   
   <script type="text/javascript">
