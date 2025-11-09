@@ -52,7 +52,7 @@
     <!-- Always-on top bar: hamburger | centered logo | CTA -->
     <nav class="grid grid-cols-3 items-center h-14">
       <!-- Left: Hamburger -->
-      <button id="menu-btn" class="justify-self-start p-2 text-brand-ivory" aria-label="Open menu">
+      <button id="menu-btn" class="p-2 text-brand-ivory relative z-50">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -70,7 +70,7 @@
     </nav>
 
     <!-- Slide-down menu (shows when hamburger is tapped) -->
-    <div id="menu-panel" class="hidden py-3">
+    <div id="menu-panel" class="hidden py-3 relative z-40">
       <!-- Row with the 3 items inline, centered -->
       <div class="flex flex-wrap justify-center items-center gap-8 text-brand-ivory font-semibold">
         <!-- Features with dropdown -->
