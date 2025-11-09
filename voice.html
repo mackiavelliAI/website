@@ -48,56 +48,41 @@
   <!-- Sticky Navbar -->
   <header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-    <!-- Mobile / Tablet Navbar -->
-    <nav class="flex h-14 items-center justify-between md:hidden">
+    <!-- Top bar: hamburger | centered logo | CTA -->
+    <nav class="grid grid-cols-3 items-center h-14">
       <!-- Left: Hamburger -->
-      <button id="menu-btn" class="p-2 text-brand-ivory" aria-label="Open menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      <button id="menu-btn"
+              class="justify-self-start p-2 text-brand-ivory relative z-50"
+              aria-label="Open menu" aria-expanded="false" aria-controls="menu-panel">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
 
       <!-- Center: Logo -->
-      <a href="index.html" class="font-cinzel text-lg font-bold tracking-wide text-[#CBA135]">
+      <a href="index.html" class="justify-self-center font-cinzel text-lg font-bold tracking-wide text-[#CBA135]">
         Mackiavelli
       </a>
 
       <!-- Right: CTA -->
-      <a href="#cta" class="bg-[#CBA135] text-black px-4 py-2 rounded-md font-semibold hover:opacity-90">
+      <a href="#cta" class="justify-self-end bg-[#CBA135] text-black px-4 py-2 rounded-md font-semibold hover:opacity-90">
         Book a call
       </a>
     </nav>
 
-    <!-- Mobile Menu (dropdown when hamburger clicked) -->
-    <div id="mobile-menu" class="hidden flex flex-wrap justify-center items-center gap-6 py-3 text-brand-ivory font-semibold md:hidden">
-
-      <div class="relative">
-        <button id="mobile-features-btn" class="flex items-center gap-1 hover:text-[#CBA135]">Features
-         <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-           <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-         </svg>
-       </button>
-      <div id="mobile-features-menu" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 flex-col rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
-        <a href="faqs.html" class="px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
-        <a href="booking.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
-        <a href="email.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
-        <a href="chat.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
-        <a href="voice.html" class="px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
-      </div>
-    </div>
-
-    <a href="index.html#how" class="hover:text-[#CBA135]">How it works</a>
-    <a href="index.html#results" class="hover:text-[#CBA135]">Results</a>
-  </div>
-
-    <!-- Desktop Navbar -->
-    <nav class="hidden md:flex items-center justify-between py-4">
-      <!-- Left: Features Dropdown -->
-      <div class="flex items-center gap-8 text-brand-ivory font-semibold">
-        <div class="relative group">
-          <button class="hover:text-[#CBA135]">Features ▾</button>
-          <div class="absolute left-0 top-full mt-2 hidden w-52 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg group-hover:block z-50">
+    <!-- Slide-down menu -->
+    <div id="menu-panel" class="hidden py-3 relative z-40">
+      <div class="flex flex-wrap justify-center items-center gap-8 text-brand-ivory font-semibold">
+        <!-- Features with dropdown -->
+        <div class="relative">
+          <button id="features-btn" class="flex items-center gap-1 hover:text-[#CBA135]" aria-expanded="false" aria-controls="features-menu">
+            Features
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+          <div id="features-menu"
+               class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
             <a href="faqs.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
             <a href="booking.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
             <a href="email.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
@@ -105,24 +90,13 @@
             <a href="voice.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
           </div>
         </div>
+
         <a href="index.html#how" class="hover:text-[#CBA135]">How it works</a>
         <a href="index.html#results" class="hover:text-[#CBA135]">Results</a>
       </div>
-
-      <!-- Center: Logo -->
-      <a href="index.html" class="font-cinzel text-lg font-bold tracking-wide text-[#CBA135]">
-        Mackiavelli
-      </a>
-
-      <!-- Right: CTA -->
-      <a href="#cta" class="bg-[#CBA135] text-black px-4 py-2 rounded-md font-semibold hover:opacity-90">
-        Book a call
-      </a>
-    </nav>
+    </div>
   </div>
 </header>
-
-
   <main id="top" class="overflow-x-clip">
     <!-- Hero -->
     <section class="relative">
