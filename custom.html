@@ -43,6 +43,30 @@
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
+  
+  <style>
+  /* Optional: prevent layout shift by reserving space for the longest word */
+#rotating-word {
+  display:inline-block;
+  min-width: 6.5ch; /* long enough for "Custom" */
+  position: relative;
+  transition: opacity .35s ease, transform .35s ease;
+}
+#rotating-word.is-out {
+  opacity: 0;
+  transform: translateY(-0.25em);
+}
+#rotating-word.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  #rotating-word { transition: none; }
+}
+</style>
+
 </head>
 <body class="bg-brand-black text-brand-ivory antialiased">
   <!-- Sticky Navbar -->
@@ -113,7 +137,7 @@
             <h1 class="text-3xl font-extrabold leading-tight text-brand-ivory md:text-5xl">
               <!--Deploy proven <span class="text-[#CBA135]" >AI agents</span> that automate work —
               with accountability.-->
-              Deploy a customized <span class="text-[#CBA135]">AI Booking agent</span> - automate your calendar.
+              Deploy a customized <span class="text-[#CBA135]">AI <span id="rotating-word" aria-live="polite">Booking</span> agent</span> - automate your Business.
             </h1>
             <p class="mt-4 max-w-xl text-neutral-300">
               An intelligent scheduling system that books, confirms, and reminds clients automatically — across chat, voice, and web. End the back-and-forth, eliminate no-shows, and free your team to focus on high-value work.
@@ -441,5 +465,27 @@ document.getElementById("cta-form").addEventListener("submit", async (e) => {
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+(function rotateWord() {
+  const words = ["FAQ", "Booking", "Email", "Chat", "Voice", "Custom"];
+  const el = document.getElementById("rotating-word");
+  let i = 0, delay = 2200;
+
+  function tick() {
+    el.classList.remove("is-in");
+    el.classList.add("is-out");
+
+    setTimeout(() => {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove("is-out");
+      el.classList.add("is-in");
+    }, 350);
+  }
+
+  el.classList.add("is-in");
+  setInterval(tick, delay);
+})();
+</script>
 </body>
 </html>
