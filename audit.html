@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="favicon-48.png" />
-  <title>Mackiavelli — Customized AI Systems that Work</title>
+  <title>Mackiavelli — Customized AI Audit</title>
   <meta name="description" content="Mackiavelli packages independent engineers' AI systems into guaranteed, productized solutions with hosting, QA, and support." />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
@@ -295,5 +295,45 @@
     // initialize "Other" state (handles iOS back/forward cache)
     toggleOther();
   </script>
+   <!-- JS for toggling -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn    = document.getElementById('menu-btn');
+  const menuPanel  = document.getElementById('menu-panel');
+  const featuresBtn = document.getElementById('features-btn');
+  const featuresMenu = document.getElementById('features-menu');
+
+  if (menuBtn && menuPanel) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuPanel.classList.toggle('hidden');
+      featuresMenu?.classList.add('hidden');
+    });
+  }
+
+  if (featuresBtn && featuresMenu) {
+    featuresBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      featuresMenu.classList.toggle('hidden');
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!menuPanel?.classList.contains('hidden') &&
+        !menuPanel.contains(e.target) &&
+        !menuBtn.contains(e.target)) {
+      menuPanel.classList.add('hidden');
+      featuresMenu?.classList.add('hidden');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      menuPanel?.classList.add('hidden');
+      featuresMenu?.classList.add('hidden');
+    }
+  });
+});
+</script>
 </body>
 </html>
