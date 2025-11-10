@@ -3,240 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free AI Efficiency Audit | Mackiavelli</title>
   <link rel="icon" type="image/png" href="favicon-48.png" />
-  <title>Mackiavelli — Customized AI Systems that Work</title>
-  <meta name="description" content="Mackiavelli packages independent engineers' AI systems into guaranteed, productized solutions with hosting, QA, and support." />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind Play CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
-              gold: '#CBA135',
-              ivory: '#F8F7F4',
-              black: '#0B0B0C',
-              slate: '#1E1F22',
-              blue: '#0074FF',
-              red: '#D43F3A'
-            }
+            brand: { gold: '#CBA135', ivory: '#F8F7F4', black: '#0B0B0C' }
           },
-          fontFamily: { 
-            cinzel: ['Cinzel', 'serif'],  // new font
-          },
-          boxShadow: {
-            'elev': '0 10px 30px -10px rgba(0,0,0,0.35)'
-          }
+          fontFamily: { cinzel: ['Cinzel','serif'] }
         }
       }
     }
   </script>
 
   <style>
-    /* Bento grid aspect helpers */
-    .bento { display:grid; gap:1rem; grid-template-columns: repeat(6, minmax(0,1fr)); }
-    @media (min-width: 768px) { .bento { gap:1.25rem; } }
-    html { scroll-behavior: smooth; }
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   </style>
 </head>
 <body class="bg-brand-black text-brand-ivory antialiased">
-  <!-- Sticky Navbar -->
-<header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <!-- Top bar: hamburger | centered logo | CTA -->
-    <nav class="grid grid-cols-3 items-center h-14">
-      <!-- Left: Hamburger -->
-      <button id="menu-btn"
-              class="justify-self-start p-2 text-brand-ivory relative z-50"
-              aria-label="Open menu" aria-expanded="false" aria-controls="menu-panel">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
 
-      <!-- Center: Logo -->
-      <a href="index.html" class="justify-self-center font-cinzel text-lg font-bold tracking-wide text-[#CBA135]">
-        Mackiavelli
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 h-14">
+      <a href="index.html" class="font-cinzel text-lg font-bold tracking-wide text-[#CBA135]">MACKIAVELLI</a>
+      <a href="index.html#cta" class="rounded-md bg-[#CBA135] text-black px-4 py-2 font-semibold hover:opacity-90">
+        Book a call
       </a>
-    </nav>
-
-    <!-- Slide-down menu -->
-    <div id="menu-panel" class="hidden py-3 relative z-40">
-      <div class="flex flex-wrap justify-center items-center gap-8 text-brand-ivory font-semibold">
-        <!-- Features with dropdown -->
-        <div class="relative">
-          <button id="features-btn" class="flex items-center gap-1 hover:text-[#CBA135]" aria-expanded="false" aria-controls="features-menu">
-            Features
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.18l3.71-3.95a.75.75 0 111.08 1.04l-4.25 4.52a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-            </svg>
-          </button>
-          <div id="features-menu" class="hidden absolute top-full 
-            mt-2 z-50 left-0 translate-x-0     <!-- mobile: align to left of button -->
-            md:left-0 md:translate-x-0         <!-- desktop: same anchor -->
-            w-[min(92vw,18rem)] md:w-56        <!-- mobile: max ~92vw; desktop: fixed 14rem -->
-            max-h-[60vh] overflow-y-auto       <!-- scroll if tall -->
-            rounded-lg bg-neutral-900 border border-neutral-800 shadow-lg">
-            <a href="booking.html" class="block px-4 py-2 text-sm hover:bg-neutral-800">Booking</a>
-            <a href="chat.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">Chat</a>
-            <a href="faqs.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">Custom</a>
-            <a href="email.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Email</a>
-            <a href="faqs.html"    class="block px-4 py-2 text-sm hover:bg-neutral-800">FAQs</a>
-            <a href="voice.html"   class="block px-4 py-2 text-sm hover:bg-neutral-800">Voice</a>
-          </div>
-        </div>
-
-        <a href="index.html#how" class="hover:text-[#CBA135]">How it works</a>
-        <a href="index.html#results" class="hover:text-[#CBA135]">Results</a>
-      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-  <!-- Main Section -->
-  <main class="max-w-3xl mx-auto px-6 py-16">
-    <h1 class="text-3xl font-bold mb-4 text-[#CBA135]">Free AI Efficiency Audit</h1>
-    <p class="text-neutral-400 mb-8">
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-6 pt-12 pb-6">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-[#CBA135]">Free AI Efficiency Audit</h1>
+    <p class="mt-4 text-neutral-400 text-lg">
       Discover how much time and money AI could save your business — before you spend a penny.
       Fill out the quick form below and we’ll send your personalized audit report within 24 hours.
     </p>
+  </section>
 
-    <!-- Include the full form you already built -->
-    <section id="audit-form">
-      <!-- AI Efficiency Audit Form -->
-<section id="audit-form" class="hidden mt-16 max-w-2xl mx-auto p-8 rounded-2xl border border-neutral-800 bg-neutral-900 text-brand-ivory">
-  <h2 class="text-2xl font-bold mb-4 text-[#CBA135]">Free AI Efficiency Audit</h2>
-  <p class="text-neutral-400 mb-6">
-    Fill this short form and receive your personalized AI Efficiency Report within 24 hours.
-  </p>
-
-  <form id="aiAuditForm" class="space-y-6">
-
-    <!-- 1. Contact Details -->
-    <div>
-      <label class="block mb-1 font-medium">Full Name</label>
-      <input type="text" name="name" required class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2">
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Company Name</label>
-      <input type="text" name="company" required class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2">
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Work Email</label>
-      <input type="email" name="email" required class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2">
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Phone (optional)</label>
-      <input type="tel" name="phone" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2">
-    </div>
-
-    <!-- 2. Business Details -->
-    <div>
-      <label class="block mb-1 font-medium">Team Size</label>
-      <select name="teamSize" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2">
-        <option>1–10</option>
-        <option>10–50</option>
-        <option>50+</option>
-      </select>
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Annual Revenue</label>
-      <select name="revenue" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2">
-        <option>&lt; £100k</option>
-        <option>£100k–£500k</option>
-        <option>£500k+</option>
-      </select>
-    </div>
-
-    <div>
-      <label class="block mb-1 font-medium">Industry</label>
-      <select name="industry" class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2">
-        <option>Finance</option>
-        <option>Property</option>
-        <option>Ecommerce</option>
-        <option>Service Business</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <!-- 3. Automation Goals -->
-    <div>
-      <label class="block mb-1 font-medium">What do you want to automate or improve with AI?</label>
-      <textarea name="goals" rows="4" required placeholder="e.g. Customer onboarding, appointment booking, or internal workflows..."
-        class="w-full rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2"></textarea>
-    </div>
-
-    <!-- 4. Current Challenges -->
-    <div>
-      <label class="block mb-2 font-medium">What’s your biggest bottleneck right now?</label>
-      <div class="space-y-2">
-        <label class="flex items-center"><input type="checkbox" name="challenge" value="Repetitive admin tasks" class="mr-2">Repetitive admin tasks</label>
-        <label class="flex items-center"><input type="checkbox" name="challenge" value="Missed leads or slow responses" class="mr-2">Missed leads or slow responses</label>
-        <label class="flex items-center"><input type="checkbox" name="challenge" value="Manual client onboarding" class="mr-2">Manual client onboarding</label>
-        <label class="flex items-center"><input type="checkbox" name="challenge" value="No central automation system" class="mr-2">No central automation system</label>
-        <label class="flex items-center"><input id="challengeOtherChk" type="checkbox" class="mr-2">Other</label>
-        <input id="challengeOther" name="challengeOther" type="text" disabled placeholder="Describe other bottleneck…" 
-               class="w-full mt-2 rounded-md bg-neutral-800 border border-neutral-700 px-3 py-2 opacity-50"/>
+  <!-- ======= AUDIT FORM (VISIBLE) ======= -->
+  <section id="audit-form" class="max-w-3xl mx-auto px-6 pb-16">
+    <form id="aiAuditForm" class="space-y-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+      <!-- Contact Details -->
+      <div>
+        <h3 class="text-lg font-semibold">Contact Details</h3>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <div>
+            <label class="block text-sm text-neutral-300 mb-1" for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" required
+                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
+          </div>
+          <div>
+            <label class="block text-sm text-neutral-300 mb-1" for="company">Company Name</label>
+            <input id="company" name="company" required
+                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
+          </div>
+          <div>
+            <label class="block text-sm text-neutral-300 mb-1" for="email">Work Email</label>
+            <input id="email" name="email" type="email" required
+                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
+          </div>
+          <div>
+            <label class="block text-sm text-neutral-300 mb-1" for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel"
+                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- 5. Interest Level -->
-    <div>
-      <label class="block mb-2 font-medium">What best describes you?</label>
-      <div class="space-y-2">
-        <label class="flex items-center"><input type="radio" name="interest" value="I’m ready to start a project" required class="mr-2">I’m ready to start a project</label>
-        <label class="flex items-center"><input type="radio" name="interest" value="I’m exploring what’s possible" class="mr-2">I’m exploring what’s possible</label>
-        <label class="flex items-center"><input type="radio" name="interest" value="I’m comparing options" class="mr-2">I’m comparing options</label>
+      <!-- Business Details -->
+      <div>
+        <h3 class="text-lg font-semibold">Business Details</h3>
+        <div class="mt-4 grid gap-4 sm:grid-cols-3">
+          <div>
+            <label class="block text-sm text-neutral-300 mb-1" for="teamSize">Team Size</label>
+            <select id="teamSize" name="teamSize" required
+                    class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
+              <option value="" disabled selected>Select…</option>
+              <option>1–10</option>
+              <option>10–50</option>
+              <option>50+</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm text-neutral-300 mb-1" for="revenue">Annual Revenue</label>
+            <select id="revenue" name="revenue" required
+                    class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
+              <option value="" disabled selected>Select…</option>
+              <option>&lt;£100k</option>
+              <option>£100k–£500k</option>
+              <option>£500k+</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm text-neutral-300 mb-1" for="industry">Industry</label>
+            <select id="industry" name="industry" required
+                    class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
+              <option value="" disabled selected>Select…</option>
+              <option>Finance</option>
+              <option>Property</option>
+              <option>Ecommerce</option>
+              <option>Service Business</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
       </div>
+
+      <!-- Automation Goals -->
+      <div>
+        <h3 class="text-lg font-semibold">Automation Goals</h3>
+        <textarea id="goals" name="goals" rows="5" required
+          placeholder="Customer onboarding, appointment booking, client communication, or internal workflow…"
+          class="mt-3 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]"></textarea>
+      </div>
+
+      <!-- Current Challenges -->
+      <div>
+        <h3 class="text-lg font-semibold">Current Challenges</h3>
+        <p class="mt-1 text-sm text-neutral-300">What’s your biggest bottleneck right now?</p>
+
+        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+          <label class="inline-flex items-start gap-2">
+            <input type="checkbox" name="challenges" value="Repetitive admin tasks"
+                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">Repetitive admin tasks</span>
+          </label>
+          <label class="inline-flex items-start gap-2">
+            <input type="checkbox" name="challenges" value="Missed leads or slow responses"
+                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">Missed leads or slow responses</span>
+          </label>
+          <label class="inline-flex items-start gap-2">
+            <input type="checkbox" name="challenges" value="Manual client onboarding"
+                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">Manual client onboarding</span>
+          </label>
+          <label class="inline-flex items-start gap-2">
+            <input type="checkbox" name="challenges" value="No central automation system"
+                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">No central automation system</span>
+          </label>
+        </div>
+
+        <!-- Other -->
+        <div class="mt-3">
+          <label class="inline-flex items-center gap-2">
+            <input id="challengeOtherChk" type="checkbox"
+                   class="h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">Other</span>
+          </label>
+          <input id="challengeOther" name="challengeOther" type="text" placeholder="Describe other bottleneck…"
+                 disabled
+                 class="mt-2 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none placeholder-neutral-500 focus:border-[#CBA135] disabled:opacity-50"/>
+        </div>
+      </div>
+
+      <!-- Interest Level -->
+      <div>
+        <h3 class="text-lg font-semibold">Interest Level</h3>
+        <div class="mt-3 grid gap-3 sm:grid-cols-3">
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="interest" value="Ready to start" required
+                   class="h-4 w-4 border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">I’m ready to start a project</span>
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="interest" value="Exploring"
+                   class="h-4 w-4 border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">I’m exploring what’s possible</span>
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="interest" value="Comparing options"
+                   class="h-4 w-4 border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-sm text-neutral-300">I’m comparing options</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+              class="rounded-md bg-[#CBA135] px-4 py-2 font-semibold text-black hover:opacity-90 w-full">
+        Get My AI Efficiency Audit
+      </button>
+
+      <!-- Honeypot -->
+      <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
+    </form>
+
+    <!-- Confirmation -->
+    <div id="audit-confirmation" class="hidden mt-6 text-center text-[#CBA135] font-medium">
+      ✅ Thank you! Your AI Efficiency Audit request has been submitted.<br>
+      You’ll receive your personalized report within 24 hours.
     </div>
-
-    <!-- 6. CTA -->
-    <button type="submit" 
-      class="w-full rounded-md bg-[#CBA135] px-6 py-3 font-semibold text-black hover:opacity-90">
-      Get My AI Efficiency Audit
-    </button>
-  </form>
-
-  <!-- Confirmation Message -->
-  <div id="audit-confirmation" class="hidden mt-6 text-center text-[#CBA135] font-medium">
-    ✅ Thank you! Your AI Efficiency Audit request has been submitted.  
-    You’ll receive your personalized report within 24 hours.
-  </div>
-</section>
-    </section>
-  </main>
+  </section>
 
   <!-- Scripts -->
   <script>
-    // Enable the 'Other' text field dynamically
     const otherChk = document.getElementById('challengeOtherChk');
     const otherInput = document.getElementById('challengeOther');
     const auditFormElement = document.getElementById('aiAuditForm');
     const confirmation = document.getElementById('audit-confirmation');
 
-    otherChk?.addEventListener('change', () => {
-      const enabled = otherChk.checked;
-      otherInput.disabled = !enabled;
-      otherInput.classList.toggle('opacity-50', !enabled);
-      if (!enabled) otherInput.value = '';
-      if (enabled) otherInput.focus();
-    });
+    function toggleOther() {
+      const on = otherChk.checked;
+      otherInput.disabled = !on;
+      otherInput.classList.toggle('opacity-50', !on);
+      if (!on) otherInput.value = '';
+      if (on) otherInput.focus();
+    }
+    otherChk?.addEventListener('change', toggleOther);
 
-    // Handle form submit
+    // Submit: show success message (no backend yet)
     auditFormElement?.addEventListener('submit', (e) => {
       e.preventDefault();
+      // simple honeypot check
+      const hp = auditFormElement.querySelector('input[name="website"]');
+      if (hp && hp.value.trim() !== '') return;
+
       auditFormElement.classList.add('hidden');
       confirmation.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // initialize "Other" state (handles iOS back/forward cache)
+    toggleOther();
   </script>
 </body>
 </html>
