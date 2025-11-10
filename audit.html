@@ -3,31 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Free AI Efficiency Audit | Mackiavelli</title>
   <link rel="icon" type="image/png" href="favicon-48.png" />
+  <title>Mackiavelli — Customized AI Systems that Work</title>
+  <meta name="description" content="Mackiavelli packages independent engineers' AI systems into guaranteed, productized solutions with hosting, QA, and support." />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind -->
+  <!-- Tailwind Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { gold: '#CBA135', ivory: '#F8F7F4', black: '#0B0B0C' }
+            brand: {
+              gold: '#CBA135',
+              ivory: '#F8F7F4',
+              black: '#0B0B0C',
+              slate: '#1E1F22',
+              blue: '#0074FF',
+              red: '#D43F3A'
+            }
           },
-          fontFamily: { cinzel: ['Cinzel','serif'] }
+          fontFamily: { 
+            cinzel: ['Cinzel', 'serif'],  // new font
+          },
+          boxShadow: {
+            'elev': '0 10px 30px -10px rgba(0,0,0,0.35)'
+          }
         }
       }
     }
   </script>
 
   <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    /* Bento grid aspect helpers */
+    .bento { display:grid; gap:1rem; grid-template-columns: repeat(6, minmax(0,1fr)); }
+    @media (min-width: 768px) { .bento { gap:1.25rem; } }
+    html { scroll-behavior: smooth; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="bg-brand-black text-brand-ivory antialiased">
-
-    <!-- Sticky Navbar -->
+  <!-- Sticky Navbar -->
 <header class="sticky top-0 z-50 border-b border-neutral-800/60 bg-black/70 backdrop-blur">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <!-- Top bar: hamburger | centered logo | CTA -->
