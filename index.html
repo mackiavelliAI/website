@@ -42,6 +42,11 @@
     html { scroll-behavior: smooth; }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Center anchor-linked sections in view */
+    section {
+    scroll-margin-top: 30vh; /* adjust this value for how far down you want it */
+    }
   </style>
 </head>
 <body class="bg-brand-black text-brand-ivory antialiased">
@@ -104,6 +109,7 @@
 </header>
 
   <main id="top" class="overflow-x-clip">
+    
     <!-- Hero -->
     <section class="relative">
       <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(203,161,53,0.18),transparent_60%)]"></div>
@@ -121,6 +127,7 @@
             </p>
 
             <div class="mt-6 flex flex-wrap items-center gap-3">
+              
   <!-- Book a discovery call -->
               <a href="form.html" class="inline-flex h-12 items-center justify-center rounded-xl bg-[#CBA135] px-5 sm:px-6
                 text-sm sm:text-base font-semibold text-black hover:opacity-90
