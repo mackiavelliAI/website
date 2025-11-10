@@ -98,7 +98,17 @@
   </div>
 </header>
 
-<!-- AI Efficiency Audit Form -->
+  <!-- Main Section -->
+  <main class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-3xl font-bold mb-4 text-[#CBA135]">Free AI Efficiency Audit</h1>
+    <p class="text-neutral-400 mb-8">
+      Discover how much time and money AI could save your business — before you spend a penny.
+      Fill out the quick form below and we’ll send your personalized audit report within 24 hours.
+    </p>
+
+    <!-- Include the full form you already built -->
+    <section id="audit-form">
+      <!-- AI Efficiency Audit Form -->
 <section id="audit-form" class="hidden mt-16 max-w-2xl mx-auto p-8 rounded-2xl border border-neutral-800 bg-neutral-900 text-brand-ivory">
   <h2 class="text-2xl font-bold mb-4 text-[#CBA135]">Free AI Efficiency Audit</h2>
   <p class="text-neutral-400 mb-6">
@@ -202,110 +212,31 @@
     You’ll receive your personalized report within 24 hours.
   </div>
 </section>
+    </section>
+  </main>
 
-  <!-- JS for toggling -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn    = document.getElementById('menu-btn');
-  const menuPanel  = document.getElementById('menu-panel');
-  const featuresBtn = document.getElementById('features-btn');
-  const featuresMenu = document.getElementById('features-menu');
+  <!-- Scripts -->
+  <script>
+    // Enable the 'Other' text field dynamically
+    const otherChk = document.getElementById('challengeOtherChk');
+    const otherInput = document.getElementById('challengeOther');
+    const auditFormElement = document.getElementById('aiAuditForm');
+    const confirmation = document.getElementById('audit-confirmation');
 
-  if (menuBtn && menuPanel) {
-    menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menuPanel.classList.toggle('hidden');
-      featuresMenu?.classList.add('hidden');
+    otherChk?.addEventListener('change', () => {
+      const enabled = otherChk.checked;
+      otherInput.disabled = !enabled;
+      otherInput.classList.toggle('opacity-50', !enabled);
+      if (!enabled) otherInput.value = '';
+      if (enabled) otherInput.focus();
     });
-  }
 
-  if (featuresBtn && featuresMenu) {
-    featuresBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      featuresMenu.classList.toggle('hidden');
+    // Handle form submit
+    auditFormElement?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      auditFormElement.classList.add('hidden');
+      confirmation.classList.remove('hidden');
     });
-  }
-
-  document.addEventListener('click', (e) => {
-    if (!menuPanel?.classList.contains('hidden') &&
-        !menuPanel.contains(e.target) &&
-        !menuBtn.contains(e.target)) {
-      menuPanel.classList.add('hidden');
-      featuresMenu?.classList.add('hidden');
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      menuPanel?.classList.add('hidden');
-      featuresMenu?.classList.add('hidden');
-    }
-  });
-});
-</script>
-<script>
-  // Enable/disable "Other" field
-  const otherChk = document.getElementById('challengeOtherChk');
-  const otherInput = document.getElementById('challengeOther');
-  otherChk?.addEventListener('change', () => {
-    otherInput.disabled = !otherChk.checked;
-    if (!otherChk.checked) otherInput.value = '';
-  });
-
-  // OPTIONAL: Submit to N8N (set your webhook URL)
-  const QUOTE_WEBHOOK = 'https://n8n.yourdomain.com/webhook/mackiavelli-quote'; // ← change this
-  const form = document.getElementById('quote-form');
-  const statusEl = document.getElementById('quote-status');
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // simple anti-bot honeypot
-    const hp = form.querySelector('input[name="website"]');
-    if (hp && hp.value.trim() !== '') return;
-
-    statusEl.textContent = 'Submitting…';
-
-    // collect checkbox values
-    const challenges = Array.from(form.querySelectorAll('input[name="challenges"]:checked')).map(i => i.value);
-    if (otherChk?.checked && otherInput?.value.trim()) challenges.push(`Other: ${otherInput.value.trim()}`);
-
-    const payload = {
-      fullName: form.fullName.value.trim(),
-      company: form.company.value.trim(),
-      email: form.email.value.trim(),
-      phone: form.phone.value.trim(),
-      teamSize: form.teamSize.value,
-      revenue: form.revenue.value,
-      industry: form.industry.value,
-      goals: form.goals.value.trim(),
-      challenges,
-      interest: form.interest.value,
-      source: 'quote-form',
-      page: location.href,
-      ts: new Date().toISOString()
-    };
-
-    try {
-      // POST to N8N (or your API). Remove/replace if you handle server-side.
-      const res = await fetch(QUOTE_WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (res.ok) {
-        statusEl.textContent = 'Thanks! We’ll reply shortly.';
-        form.reset();
-        otherInput.disabled = true;
-      } else {
-        statusEl.textContent = 'There was an error. Please try again.';
-      }
-    } catch (err) {
-      console.error(err);
-      statusEl.textContent = 'Could not connect. Please try again later.';
-    }
-  });
-</script>
+  </script>
 </body>
 </html>
