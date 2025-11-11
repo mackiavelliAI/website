@@ -308,11 +308,20 @@
           <label class="flex items-center gap-2 text-neutral-300 sm:col-span-2"><input type="radio" name="primary_priority" value="Building new revenue streams" class="text-[#CBA135] focus:ring-[#CBA135]"> Building new revenue streams</label>
         </div>
 
-        <label class="mt-6 block text-sm text-neutral-400">How big of an impact would solving these be?</label>
-        <div class="mt-2 flex items-center gap-3">
-          <input id="impact_slider" name="impact_score" type="range" min="1" max="5" step="1" class="w-full accent-[#CBA135]">
-          <span id="impact_value" class="w-10 text-center rounded-md border border-neutral-800 bg-neutral-900/60 p-1 text-sm text-brand-ivory">3</span>
-        </div>
+        <label class="mt-6 block text-sm text-neutral-400">
+        Roughly how many hours per week are spent on these tasks?
+        </label>
+        <div class="mt-2 flex justify-center">
+         <select name="hours_per_week"
+           class="w-full max-w-xs rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50">
+           <option value="" disabled selected>Select hours</option>
+           <option>0–5 hours</option>
+           <option>6–10 hours</option>
+           <option>11–20 hours</option>
+           <option>21–40 hours</option>
+           <option>40+ hours</option>
+         </select>
+      </div>
       </div>
 
       <!-- contact details-->
