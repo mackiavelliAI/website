@@ -104,107 +104,7 @@
   </div>
 </header>
 
-<!-- Quote / Strategy Call Form -->
-    <section id="ai-audit" class="py-16 bg-brand-black">
-      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <h1 class="text-center text-3xl font-bold text-brand-ivory">Book a Discovery</h1>
-        <p class="mt-2 text-center text-neutral-400">
-        Book a 30‑minute discovery call. If there’s no fit, we’ll tell you straight.
-        </p>
-
-    <form id="discovery-form" class="mt-10 space-y-10">
-    <!-- contact details-->
-      <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-        <h3 class="text-lg font-semibold text-brand-ivory">Contact Details</h3>
-        <div class="mt-4 grid gap-4 sm:grid-cols-2" border >
-          <div>
-            <label class="block text-sm text-neutral-300 mb-1" for="fullName">Full Name</label>
-            <input id="fullName" name="fullName" required
-                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
-          </div>
-          <div>
-            <label class="block text-sm text-neutral-300 mb-1" for="company">Company Name</label>
-            <input id="company" name="company" required
-                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
-          </div>
-          <div>
-            <label class="block text-sm text-neutral-300 mb-1" for="email">Work Email</label>
-            <input id="email" name="email" type="email" required
-                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
-          </div>
-          <div>
-            <label class="block text-sm text-neutral-300 mb-1" for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel"
-                   class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
-          </div>
-        </div>
-      </div>
-    <!-- 2) Business Details -->
-    <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-      <h3 class="text-lg font-semibold text-brand-ivory">Business Details</h3>
-      <div class="mt-4 grid gap-4 sm:grid-cols-3">
-        <div>
-          <label class="block text-sm text-neutral-300" for="teamSize">Team Size</label>
-          <select id="teamSize" name="teamSize" required
-                  class="mt-1 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory outline-none focus:border-[#CBA135]">
-            <option value="" disabled selected>Select…</option>
-            <option>1–10</option>
-              <option>10–25</option>
-              <option>25-50</option>
-              <option>50+</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm text-neutral-300" for="revenue">Annual Revenue</label>
-          <select id="revenue" name="revenue" required
-                  class="mt-1 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory outline-none focus:border-[#CBA135]">
-            <option value="" disabled selected>Select…</option>
-            <option>below £100k</option>
-              <option>£100k–£500k</option>
-              <option>£500k-£2M</option>
-              <option>£2M+</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm text-neutral-300" for="industry">Industry</label>
-          <select id="industry" name="industry" required
-                  class="mt-1 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory outline-none focus:border-[#CBA135]">
-            <option value="" disabled selected>Select…</option>
-            <option>Finance & Mortgage</option>
-            <option>Property & Real Estate</option>
-            <option>E-commerce & Retail</option>
-            <option>Professional Services (Legal, Consulting, Accounting)</option>
-            <option>Health & Wellness</option>
-            <option>Education & Training</option>
-            <option>Recruitment & HR</option>
-            <option>Marketing & Creative Agencies</option>
-            <option>Construction & Trades</option>
-            <option>Hospitality & Events</option>
-            <option>Technology & SaaS</option>
-            <option>Logistics & Transport</option>
-            <option>Nonprofit & Community</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <!-- Calendar -->
-
-    <!-- 6) CTAs -->
-    <div class="flex flex-wrap items-center gap-3 pt-2">
-      <!-- Secondary option (alternative CTA) -->
-      <button type="submit" class="rounded-md bg-[#CBA135] px-4 py-2 font-semibold text-black hover:opacity-90 w-full">
-        Book Appointment
-      </button>
-
-      <!-- Status text -->
-      <span id="quote-status" class="text-sm text-neutral-400"></span>
-    </div>
-
-    <!-- Honeypot -->
-    <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
-  </form>
+  
         <!-- Discovery / Strategy Call -->
 <section id="ai-audit" class="py-16 bg-brand-black">
   <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -278,7 +178,9 @@
               <option>Below £100k</option>
               <option>£100k–£500k</option>
               <option>£500k–£2M</option>
-              <option>£2M+</option>
+              <option>£2M-£5m</option>
+              <option>£5m-£10M</option>
+              <option>£10M+</option>
             </select>
           </div>
 
@@ -307,12 +209,13 @@
         </div>
       </div>
 
+      <!-- calendar -->
+
       <!-- CTA -->
       <div class="pt-2">
         <button
           type="submit"
           class="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#CBA135] px-5 py-3 text-base font-semibold text-black shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CBA135]/40 disabled:cursor-not-allowed disabled:opacity-60"
-        >
           <svg class="h-5 w-5 transition group-disabled:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/></svg>
           Book Appointment
           <span class="absolute right-4 hidden h-5 w-5 animate-spin rounded-full border-2 border-black/40 border-t-black group-[.loading]:inline-block"></span>
