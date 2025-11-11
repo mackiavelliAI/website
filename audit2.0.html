@@ -104,165 +104,218 @@
 </header>
 
   <!-- ======= AUDIT FORM (VISIBLE) ======= -->
-  <section id="form" class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-    <section class="max-w-3xl mx-auto px-6 pt-12 pb-16">
-      <div class="text-center md:text-left mb-10">
-        <h1 class="text-3xl md:text-4xl font-extrabold text-[#CBA135] text-center">
-          Free AI Audit
-        </h1>
-        <p class="mt-4 text-neutral-400 text-center">
-          Discover which AI tools save your business time and money.
-        </p>
-      </div>
-    <form id="aiAuditForm" class="space-y-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 text-center">
-      
-      <!-- Business Details -->
-      <div>
-        <h3 class="text-lg font-semibold">Business Details</h3>
-        <div class="mt-4 grid gap-4 sm:grid-cols-3">
-          <div>
-            <label class="block text-sm text-neutral-300 mb-1" for="teamSize">Headcount</label>
-            <select id="teamSize" name="teamSize" required
-                    class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
-              <option value="" disabled selected>Select…</option>
-              <option>1–10</option>
-              <option>10–25</option>
-              <option>25-50</option>
-              <option>50+</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm text-neutral-300 mb-1" for="revenue">Annual Revenue</label>
-            <select id="revenue" name="revenue" required
-                    class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
-              <option value="" disabled selected>Select…</option>
-              <option>below £100k</option>
-              <option>£100k–£500k</option>
-              <option>£500k-£2M</option>
-              <option>£2M+</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm text-neutral-300 mb-1" for="industry">Industry</label>
-            <select id="industry" name="industry" required
-                    class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none focus:border-[#CBA135]">
-              <option value="" disabled selected>Select…</option>
-              <option>Finance & Mortgage</option>
-              <option>Property & Real Estate</option>
-              <option>E-commerce & Retail</option>
-              <option>Professional Services (Legal, Consulting, Accounting)</option>
-              <option>Health & Wellness</option>
-              <option>Education & Training</option>
-              <option>Recruitment & HR</option>
-              <option>Marketing & Creative Agencies</option>
-              <option>Construction & Trades</option>
-              <option>Hospitality & Events</option>
-              <option>Technology & SaaS</option>
-              <option>Logistics & Transport</option>
-              <option>Nonprofit & Community</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-      </div>
+  <section id="ai-audit" class="py-16 bg-brand-black">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-center text-3xl font-bold text-brand-ivory">Free AI Efficiency Audit</h2>
+    <p class="mt-2 text-center text-neutral-400">
+      Answer a few questions so we can calculate time savings and recommend the best automations for your business.
+    </p>
 
-      <!-- Current Challenges -->
-      <div>
-        <h3 class="text-lg font-semibold">Current Challenges</h3>
-        <p class="mt-1 text-sm text-neutral-300">What’s your biggest bottleneck(s) right now?</p>
+    <form id="ai-audit-form" class="mt-10 space-y-10">
+      <!-- 1) Business Overview -->
+      <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+        <h3 class="text-lg font-semibold text-brand-ivory">1) Business Overview</h3>
 
-        <div class="mt-3 grid gap-3 sm:grid-cols-2">
-          <label class="inline-flex items-start gap-2">
-            <input type="checkbox" name="challenges" value="Repetitive admin tasks"
-                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
-            <span class="text-sm text-neutral-300">Repetitive admin tasks</span>
+        <label class="mt-4 block text-sm text-neutral-400">Business name</label>
+        <input name="business_name" required
+               class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50" />
+
+        <label class="mt-4 block text-sm text-neutral-400">Industry</label>
+        <select name="industry" required
+                class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50">
+          <option value="" disabled selected>Select your industry</option>
+          <option>Finance & Mortgage</option>
+          <option>Property & Real Estate</option>
+          <option>E-commerce & Retail</option>
+          <option>Professional Services (Legal, Consulting, Accounting)</option>
+          <option>Health & Wellness</option>
+          <option>Education & Training</option>
+          <option>Recruitment & HR</option>
+          <option>Marketing & Creative Agencies</option>
+          <option>Construction & Trades</option>
+          <option>Hospitality & Events</option>
+          <option>Technology & SaaS</option>
+          <option>Logistics & Transport</option>
+          <option>Nonprofit & Community</option>
+          <option>Other</option>
+        </select>
+
+        <label class="mt-4 block text-sm text-neutral-400">Team size</label>
+        <div class="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="team_size" value="1–5" class="text-[#CBA135] focus:ring-[#CBA135]" required> 1–5
           </label>
-          <label class="inline-flex items-start gap-2">
-            <input type="checkbox" name="challenges" value="Missed leads or slow responses"
-                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
-            <span class="text-sm text-neutral-300">Missed leads or slow responses</span>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="team_size" value="6–20" class="text-[#CBA135] focus:ring-[#CBA135]"> 6–20
           </label>
-          <label class="inline-flex items-start gap-2">
-            <input type="checkbox" name="challenges" value="Manual client onboarding"
-                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
-            <span class="text-sm text-neutral-300">Manual client onboarding</span>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="team_size" value="21–50" class="text-[#CBA135] focus:ring-[#CBA135]"> 21–50
           </label>
-          <label class="inline-flex items-start gap-2">
-            <input type="checkbox" name="challenges" value="No central automation system"
-                   class="mt-1 h-4 w-4 rounded border-neutral-700 bg-brand-black text-[#CBA135] focus:ring-[#CBA135]">
-            <span class="text-sm text-neutral-300">No central automation system</span>
-            
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="team_size" value="50+" class="text-[#CBA135] focus:ring-[#CBA135]"> 50+
           </label>
         </div>
 
-        <!-- Other -->
-        <div class="mt-3">
-          <input id="challengeOther" name="challengeOther" type="text" placeholder="Describe other bottleneck…"
-                 enabled
-                 class="mt-2 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 outline-none placeholder-neutral-500 focus:border-[#CBA135]"/>
+        <label class="mt-4 block text-sm text-neutral-400">Average monthly revenue (optional)</label>
+        <input name="monthly_revenue" placeholder="e.g. £120,000"
+               class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50" />
+
+        <label class="mt-4 block text-sm text-neutral-400">Top goals for the next 6 months</label>
+        <textarea name="goals" rows="3" placeholder="e.g. Generate more leads, reduce admin time, improve CX, cut costs…"
+                  class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50"></textarea>
+      </div>
+
+      <!-- 2) Operations & Workflows -->
+      <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+        <h3 class="text-lg font-semibold text-brand-ivory">2) Operations & Workflows</h3>
+
+        <label class="mt-4 block text-sm text-neutral-400">Which areas take the most time? (select all that apply)</label>
+        <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="checkbox" name="time_areas" value="Customer inquiries / FAQs" class="text-[#CBA135] focus:ring-[#CBA135]"> Customer inquiries / FAQs
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="checkbox" name="time_areas" value="Scheduling & appointments" class="text-[#CBA135] focus:ring-[#CBA135]"> Scheduling & appointments
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="checkbox" name="time_areas" value="Onboarding new clients" class="text-[#CBA135] focus:ring-[#CBA135]"> Onboarding new clients
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="checkbox" name="time_areas" value="Document processing" class="text-[#CBA135] focus:ring-[#CBA135]"> Document processing
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="checkbox" name="time_areas" value="Reporting / analytics" class="text-[#CBA135] focus:ring-[#CBA135]"> Reporting / analytics
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="checkbox" name="time_areas" value="Internal communication" class="text-[#CBA135] focus:ring-[#CBA135]"> Internal communication
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="checkbox" name="time_areas" value="Marketing content creation" class="text-[#CBA135] focus:ring-[#CBA135]"> Marketing content creation
+          </label>
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="time-other" class="text-[#CBA135] focus:ring-[#CBA135]">
+            <span class="text-neutral-300">Other</span>
+          </div>
+          <input id="time-other-text" name="time_areas_other" placeholder="Describe other area…" class="hidden col-span-1 sm:col-span-2 rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50" />
+        </div>
+
+        <label class="mt-6 block text-sm text-neutral-400">
+          Roughly how many hours per week are spent on these tasks?
+        </label>
+        <div class="mt-2 flex items-center gap-3">
+          <input id="hours_slider" name="hours_per_week" type="range" min="0" max="60" step="1"
+                 class="w-full accent-[#CBA135]">
+          <span id="hours_value" class="w-12 text-center rounded-md border border-neutral-800 bg-neutral-900/60 p-1 text-sm text-brand-ivory">0</span>
+        </div>
+
+        <label class="mt-6 block text-sm text-neutral-400">
+          Which tools or systems do you currently use? (CRM, email, spreadsheets, forms, etc.)
+        </label>
+        <textarea name="current_tools" rows="2" placeholder="e.g. HubSpot, Google Workspace, Airtable, Slack, Calendly"
+                  class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50"></textarea>
+
+        <label class="mt-6 block text-sm text-neutral-400">How tech-savvy is your team?</label>
+        <div class="mt-2 flex flex-wrap gap-6">
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="tech_savvy" value="Low" class="text-[#CBA135] focus:ring-[#CBA135]" required> Low
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="tech_savvy" value="Medium" class="text-[#CBA135] focus:ring-[#CBA135]"> Medium
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="tech_savvy" value="High" class="text-[#CBA135] focus:ring-[#CBA135]"> High
+          </label>
         </div>
       </div>
 
-      <!-- How does new business find you -->
-  <label class="block mt-3 text-sm text-neutral-400">
-    How does new business find you?
-  </label>
-  <div class="mt-3 flex justify-center gap-8 flex-wrap">
-    <label class="flex items-center gap-2 text-neutral-300">
-      <input type="radio" name="lead-source" value="inbound" 
-             class="text-[#CBA135] focus:ring-[#CBA135]" required>
-      Inbound
-    </label>
-    <label class="flex items-center gap-2 text-neutral-300">
-      <input type="radio" name="lead-source" value="outbound" 
-             class="text-[#CBA135] focus:ring-[#CBA135]">
-      Outbound
-    </label>
-    <label class="flex items-center gap-2 text-neutral-300">
-      <input type="radio" name="lead-source" value="both" 
-             class="text-[#CBA135] focus:ring-[#CBA135]">
-      Both
-    </label>
-  </div>
+      <!-- 3) Communication & Sales -->
+      <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+        <h3 class="text-lg font-semibold text-brand-ivory">3) Communication & Sales</h3>
 
-  <!-- What form of inbound / outbound -->
-  <label class="block mt-8 text-sm text-neutral-400">
-    What form of inbound / outbound do you use most?
-  </label>
-  <div class="mt-3 flex flex-wrap justify-center gap-6 text-neutral-300">
-    <label class="flex items-center gap-2">
-      <input type="checkbox" name="channels" value="email" class="text-[#CBA135] focus:ring-[#CBA135]"> Email
-    </label>
-    <label class="flex items-center gap-2">
-      <input type="checkbox" name="channels" value="text" class="text-[#CBA135] focus:ring-[#CBA135]"> Text / SMS
-    </label>
-    <label class="flex items-center gap-2">
-      <input type="checkbox" name="channels" value="calls" class="text-[#CBA135] focus:ring-[#CBA135]"> Calls
-    </label>
-    <label class="flex items-center gap-2">
-      <input type="checkbox" name="channels" value="website" class="text-[#CBA135] focus:ring-[#CBA135]"> Website Leads
-    </label>
-    <label class="flex items-center gap-2">
-      <input type="checkbox" name="channels" value="social" class="text-[#CBA135] focus:ring-[#CBA135]"> Social Media
-    </label>
-    <label class="flex items-center gap-2">
-      <input type="checkbox" name="channels" value="referrals" class="text-[#CBA135] focus:ring-[#CBA135]"> Referrals
-    </label>
-  </div>
-</div>
+        <label class="mt-4 block text-sm text-neutral-400">How do customers usually contact you?</label>
+        <div class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <label class="flex items-center gap-2 text-neutral-300"><input type="checkbox" name="contact_channels" value="Phone" class="text-[#CBA135] focus:ring-[#CBA135]"> Phone</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="checkbox" name="contact_channels" value="Email" class="text-[#CBA135] focus:ring-[#CBA135]"> Email</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="checkbox" name="contact_channels" value="Chat" class="text-[#CBA135] focus:ring-[#CBA135]"> Chat</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="checkbox" name="contact_channels" value="Website form" class="text-[#CBA135] focus:ring-[#CBA135]"> Website form</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="checkbox" name="contact_channels" value="Social media" class="text-[#CBA135] focus:ring-[#CBA135]"> Social media</label>
+        </div>
 
-<!-- 5) Tech Stack -->
-<div class="mt-8">
-  <h3 class="text-lg font-semibold text-brand-ivory">Tech Stack</h3>
+        <label class="mt-6 block text-sm text-neutral-400">Do you already use any chatbots, automations, or AI tools?</label>
+        <div class="mt-2 flex flex-wrap gap-6">
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="uses_ai_now" value="Yes" class="text-[#CBA135] focus:ring-[#CBA135]" required> Yes
+          </label>
+          <label class="flex items-center gap-2 text-neutral-300">
+            <input type="radio" name="uses_ai_now" value="No" class="text-[#CBA135] focus:ring-[#CBA135]"> No
+          </label>
+        </div>
 
-  <label class="block mt-3 text-sm text-neutral-400">
-    What tools, platforms, or CRMs do you currently use? (e.g. HubSpot, Notion, Airtable, Slack, Microsoft Office, Google Workspace)
-  </label>
-  <textarea id="tech-stack" name="tech-stack" rows="3" placeholder="List your current tools or systems..."
-            class="mt-2 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50"></textarea>
-</div>
+        <div id="tools_if_yes" class="mt-3 hidden">
+          <label class="block text-sm text-neutral-400">If yes, which?</label>
+          <input name="ai_tools_list" placeholder="e.g. Zapier, Voiceflow, n8n, OpenAI, ManyChat…"
+                 class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50" />
+        </div>
 
-      <!-- Contact Details -->
+        <label class="mt-6 block text-sm text-neutral-400">How do you currently qualify or onboard new leads?</label>
+        <input name="lead_qualification" placeholder="e.g. Manual, spreadsheet, CRM workflow"
+               class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50" />
+
+        <label class="mt-6 block text-sm text-neutral-400">How often do you lose leads due to slow replies/admin delays?</label>
+        <div class="mt-2 flex flex-wrap gap-6">
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="lost_leads_frequency" value="Rarely" class="text-[#CBA135] focus:ring-[#CBA135]" required> Rarely</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="lost_leads_frequency" value="Sometimes" class="text-[#CBA135] focus:ring-[#CBA135]"> Sometimes</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="lost_leads_frequency" value="Often" class="text-[#CBA135] focus:ring-[#CBA135]"> Often</label>
+        </div>
+      </div>
+
+      <!-- 4) Data & Tools -->
+      <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+        <h3 class="text-lg font-semibold text-brand-ivory">4) Data & Tools</h3>
+
+        <label class="mt-4 block text-sm text-neutral-400">Which platforms does your business rely on daily?</label>
+        <textarea name="daily_platforms" rows="2" placeholder="e.g. Google Workspace, HubSpot, Notion, Zapier, Voiceflow, n8n, Monday.com…"
+                  class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50"></textarea>
+
+        <label class="mt-6 block text-sm text-neutral-400">Do you collect or store customer data?</label>
+        <div class="mt-2 flex flex-wrap gap-6">
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="stores_data" value="Yes" class="text-[#CBA135] focus:ring-[#CBA135]" required> Yes</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="stores_data" value="No" class="text-[#CBA135] focus:ring-[#CBA135]"> No</label>
+        </div>
+
+        <label class="mt-6 block text-sm text-neutral-400">Do you track KPIs or metrics? If yes, which ones?</label>
+        <input name="kpis" placeholder="e.g. leads, conversion rate, response time, AOV"
+               class="mt-1 w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50" />
+
+        <label class="mt-6 block text-sm text-neutral-400">Preferred automation hosting</label>
+        <div class="mt-2 flex flex-wrap gap-6">
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="hosting_pref" value="Cloud" class="text-[#CBA135] focus:ring-[#CBA135]" required> Cloud</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="hosting_pref" value="Local" class="text-[#CBA135] focus:ring-[#CBA135]"> Local</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="hosting_pref" value="Not sure" class="text-[#CBA135] focus:ring-[#CBA135]"> Not sure</label>
+        </div>
+      </div>
+
+      <!-- 5) Results & Output Preferences -->
+      <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
+        <h3 class="text-lg font-semibold text-brand-ivory">5) Results & Output Preferences</h3>
+
+        <label class="mt-4 block text-sm text-neutral-400">What’s most important right now? (choose one)</label>
+        <div class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="primary_priority" value="Reducing manual workload" class="text-[#CBA135] focus:ring-[#CBA135]" required> Reducing manual workload</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="primary_priority" value="Increasing lead conversion" class="text-[#CBA135] focus:ring-[#CBA135]"> Increasing lead conversion</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="primary_priority" value="Improving customer experience" class="text-[#CBA135] focus:ring-[#CBA135]"> Improving customer experience</label>
+          <label class="flex items-center gap-2 text-neutral-300"><input type="radio" name="primary_priority" value="Reducing costs" class="text-[#CBA135] focus:ring-[#CBA135]"> Reducing costs</label>
+          <label class="flex items-center gap-2 text-neutral-300 sm:col-span-2"><input type="radio" name="primary_priority" value="Building new revenue streams" class="text-[#CBA135] focus:ring-[#CBA135]"> Building new revenue streams</label>
+        </div>
+
+        <label class="mt-6 block text-sm text-neutral-400">How big of an impact would solving these be?</label>
+        <div class="mt-2 flex items-center gap-3">
+          <input id="impact_slider" name="impact_score" type="range" min="1" max="5" step="1" class="w-full accent-[#CBA135]">
+          <span id="impact_value" class="w-10 text-center rounded-md border border-neutral-800 bg-neutral-900/60 p-1 text-sm text-brand-ivory">3</span>
+        </div>
+      </div>
+
+      <!-- contact details-->
       <div>
         <h3 class="text-lg font-semibold">Contact Details</h3>
         <div class="mt-4 grid gap-4 sm:grid-cols-2">
