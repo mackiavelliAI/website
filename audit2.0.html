@@ -202,11 +202,23 @@
         <label class="mt-6 block text-sm text-neutral-400">
           Roughly how many hours per week are spent on these tasks?
         </label>
-        <div class="mt-2 flex items-center gap-3">
-          <input id="hours_slider" name="hours_per_week" type="range" min="0" max="60" step="1"
-                 class="w-full accent-[#CBA135]">
-          <span id="hours_value" class="w-12 text-center rounded-md border border-neutral-800 bg-neutral-900/60 p-1 text-sm text-brand-ivory">0</span>
+        <div class="mt-2 flex justify-center">
+        <select name="hours_per_week"
+                class="w-full max-w-xs rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50">
+        <option value="" disabled selected>Select range</option>
+          <option>1–5 hours</option>
+          <option>6–10 hours</option>
+          <option>11–15 hours</option>
+          <option>16–20 hours</option>
+          <option>21–30 hours</option>
+          <option>31–40 hours</option>
+          <option>41–50 hours</option>
+          <option>51–60 hours</option>
+          <option>61–80 hours</option>
+          <option>80+ hours</option>
+        </select>
         </div>
+
 
         <label class="mt-6 block text-sm text-neutral-400">
           Which tools or systems do you currently use? (CRM, email, spreadsheets, forms, etc.)
