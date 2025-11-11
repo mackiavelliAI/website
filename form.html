@@ -264,6 +264,74 @@
       </fieldset>
     </div>
 
+    <!-- 3) Lead Source & Acquisition -->
+<div class="mt-8 text-center">
+  <h3 class="text-lg font-semibold text-brand-ivory">Lead Generation</h3>
+
+  <!-- How does new business find you -->
+  <label class="block mt-3 text-sm text-neutral-400">
+    How does new business find you?
+  </label>
+  <div class="mt-3 flex justify-center gap-8 flex-wrap">
+    <label class="flex items-center gap-2 text-neutral-300">
+      <input type="radio" name="lead-source" value="inbound" 
+             class="text-[#CBA135] focus:ring-[#CBA135]" required>
+      Inbound
+    </label>
+    <label class="flex items-center gap-2 text-neutral-300">
+      <input type="radio" name="lead-source" value="outbound" 
+             class="text-[#CBA135] focus:ring-[#CBA135]">
+      Outbound
+    </label>
+    <label class="flex items-center gap-2 text-neutral-300">
+      <input type="radio" name="lead-source" value="both" 
+             class="text-[#CBA135] focus:ring-[#CBA135]">
+      Both
+    </label>
+  </div>
+
+  <!-- What form of inbound / outbound -->
+  <label class="block mt-8 text-sm text-neutral-400">
+    What form of inbound / outbound do you use most?
+  </label>
+  <div class="mt-3 flex flex-wrap justify-center gap-6 text-neutral-300">
+    <label class="flex items-center gap-2">
+      <input type="checkbox" name="channels" value="email" class="text-[#CBA135] focus:ring-[#CBA135]"> Email
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" name="channels" value="text" class="text-[#CBA135] focus:ring-[#CBA135]"> Text / SMS
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" name="channels" value="calls" class="text-[#CBA135] focus:ring-[#CBA135]"> Calls
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" name="channels" value="website" class="text-[#CBA135] focus:ring-[#CBA135]"> Website Leads
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" name="channels" value="social" class="text-[#CBA135] focus:ring-[#CBA135]"> Social Media
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" name="channels" value="referrals" class="text-[#CBA135] focus:ring-[#CBA135]"> Referrals
+    </label>
+  </div>
+</div>
+    
+    <!-- 4) Monthly Volume -->
+    <div class="mt-8">
+      <h3 class="text-lg font-semibold text-brand-ivory">Business Volume</h3>
+        <label class="block mt-3 text-sm text-neutral-400">
+        Approximate monthly lead or client volume
+        </label>
+        <select id="volume" name="volume" required
+          class="w-full rounded-lg border border-neutral-800 bg-neutral-900/60 p-3 text-sm text-brand-ivory focus:ring-2 focus:ring-[#CBA135]/50 mt-2">
+         <option value="" disabled selected>Select volume range</option>
+         <option>0 – 50 /month</option>
+         <option>50 – 200 /month</option>
+         <option>200 – 500 /month</option>
+         <option>500+ /month</option>
+        </select>
+    </div>
+
     <!-- 6) CTAs -->
     <div class="flex flex-wrap items-center gap-3 pt-2">
       <!-- Secondary option (alternative CTA) -->
