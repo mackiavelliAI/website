@@ -103,46 +103,48 @@
   </div>
 </header>
 
-  
-        <!-- Discovery / Strategy Call -->
+    <!-- Discovery / Strategy Call -->
 <section id="ai-audit" class="py-16 bg-brand-black">
   <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
     <!-- Heading -->
     <header class="text-center">
-      <h1 class="text-3xl font-bold tracking-tight text-brand-ivory">
-        Book a Discovery Call
-      </h1>
+      <h1 class="text-3xl font-bold tracking-tight text-brand-ivory">Book a Discovery Call</h1>
       <p class="mt-2 text-neutral-400">
         Book a 30-minute discovery call. If there’s no fit, we’ll tell you straight.
       </p>
     </header>
 
     <!-- Form -->
-    <form id="discovery-form" class="mt-10 space-y-6">
-      <!-- Contact Details -->
+    <form id="discovery-form"
+          class="mt-10 space-y-6"
+          data-n8n="https://YOUR_N8N/webhook/discovery"
+          data-success="#discovery-success"
+          data-error="#discovery-error">
+
+      <!-- 1) Contact Details -->
       <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm">
         <h3 class="text-lg font-semibold text-brand-ivory">1) Contact Details</h3>
 
         <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="sm:col-span-1">
+          <div>
             <label for="fullName" class="mb-1 block text-sm text-neutral-300">Full Name</label>
-            <input id="fullName" name="fullName" required
+            <input id="fullName" name="full_name" required
               class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory placeholder-neutral-500 outline-none transition focus:border-[#CBA135] focus:ring-2 focus:ring-[#CBA135]/30" placeholder="Jane Doe">
           </div>
 
-          <div class="sm:col-span-1">
+          <div>
             <label for="company" class="mb-1 block text-sm text-neutral-300">Company Name</label>
             <input id="company" name="company" required
               class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory placeholder-neutral-500 outline-none transition focus:border-[#CBA135] focus:ring-2 focus:ring-[#CBA135]/30" placeholder="Acme Ltd">
           </div>
 
-          <div class="sm:col-span-1">
+          <div>
             <label for="email" class="mb-1 block text-sm text-neutral-300">Work Email</label>
-            <input id="email" name="email" type="email" required
+            <input id="email" name="work_email" type="email" required
               class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory placeholder-neutral-500 outline-none transition focus:border-[#CBA135] focus:ring-2 focus:ring-[#CBA135]/30" placeholder="you@company.com">
           </div>
 
-          <div class="sm:col-span-1">
+          <div>
             <label for="phone" class="mb-1 block text-sm text-neutral-300">Phone <span class="text-neutral-500">(optional)</span></label>
             <input id="phone" name="phone" type="tel"
               class="w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory placeholder-neutral-500 outline-none transition focus:border-[#CBA135] focus:ring-2 focus:ring-[#CBA135]/30" placeholder="+44…">
@@ -150,102 +152,93 @@
         </div>
       </div>
 
-      <!-- Business Details -->
+      <!-- 2) Business Details -->
       <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm">
         <h3 class="text-lg font-semibold text-brand-ivory">2) Business Details</h3>
 
         <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <!-- Team Size -->
           <div>
             <label for="teamSize" class="block text-sm text-neutral-300">Team Size</label>
-            <select id="teamSize" name="teamSize" required
+            <select id="teamSize" name="team_size" required
               class="mt-1 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory outline-none transition focus:border-[#CBA135] focus:ring-2 focus:ring-[#CBA135]/30">
               <option value="" disabled selected>Select…</option>
-              <option>1–10</option>
-              <option>10–25</option>
-              <option>25–50</option>
-              <option>50+</option>
+              <option>1–10</option><option>10–25</option><option>25–50</option><option>50+</option>
             </select>
           </div>
 
-          <!-- Revenue -->
           <div>
             <label for="revenue" class="block text-sm text-neutral-300">Annual Revenue</label>
-            <select id="revenue" name="revenue" required
+            <select id="revenue" name="annual_revenue" required
               class="mt-1 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory outline-none transition focus:border-[#CBA135] focus:ring-2 focus:ring-[#CBA135]/30">
               <option value="" disabled selected>Select…</option>
-              <option>Below £100k</option>
-              <option>£100k–£500k</option>
-              <option>£500k–£2M</option>
-              <option>£2M-£5m</option>
-              <option>£5m-£10M</option>
-              <option>£10M+</option>
+              <option>Below £100k</option><option>£100k–£500k</option><option>£500k–£2M</option>
+              <option>£2M–£5M</option><option>£5M–£10M</option><option>£10M+</option>
             </select>
           </div>
 
-          <!-- Industry -->
           <div>
             <label for="industry" class="block text-sm text-neutral-300">Industry</label>
             <select id="industry" name="industry" required
               class="mt-1 w-full rounded-lg border border-neutral-800 bg-brand-black px-3 py-2 text-brand-ivory outline-none transition focus:border-[#CBA135] focus:ring-2 focus:ring-[#CBA135]/30">
               <option value="" disabled selected>Select…</option>
-              <option>Finance & Mortgage</option>
-              <option>Property & Real Estate</option>
-              <option>E-commerce & Retail</option>
-              <option>Professional Services</option>
-              <option>Health & Wellness</option>
-              <option>Education & Training</option>
-              <option>Recruitment & HR</option>
-              <option>Marketing & Creative Agencies</option>
-              <option>Construction & Trades</option>
-              <option>Hospitality & Events</option>
-              <option>Technology & SaaS</option>
-              <option>Logistics & Transport</option>
-              <option>Nonprofit & Community</option>
-              <option>Other</option>
+              <option>Finance & Mortgage</option><option>Property & Real Estate</option><option>E-commerce & Retail</option>
+              <option>Professional Services</option><option>Health & Wellness</option><option>Education & Training</option>
+              <option>Recruitment & HR</option><option>Marketing & Creative Agencies</option><option>Construction & Trades</option>
+              <option>Hospitality & Events</option><option>Technology & SaaS</option><option>Logistics & Transport</option>
+              <option>Nonprofit & Community</option><option>Other</option>
             </select>
           </div>
         </div>
       </div>
 
-          <!--  -->
-        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm">
+      <!-- 3) AI Audit -->
+      <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6 shadow-sm">
         <h3 class="text-lg font-semibold text-brand-ivory">3) AI Audit</h3>
-          <label class="mt-6 block text-sm text-neutral-400">Did you complete the Free AI Audit?</label>
+        <label class="mt-6 block text-sm text-neutral-400">Did you complete the Free AI Audit?</label>
         <div class="mt-2 flex flex-wrap gap-6">
           <label class="flex items-center gap-2 text-neutral-300">
-            <input type="radio" name="uses_ai_now" value="Yes" class="text-[#CBA135] focus:ring-[#CBA135]" required> Yes
+            <input type="radio" name="ai_audit_done" value="Yes" class="text-[#CBA135] focus:ring-[#CBA135]" required> Yes
           </label>
           <label class="flex items-center gap-2 text-neutral-300">
-            <input type="radio" name="uses_ai_now" value="No" class="text-[#CBA135] focus:ring-[#CBA135]"> No
+            <input type="radio" name="ai_audit_done" value="No" class="text-[#CBA135] focus:ring-[#CBA135]"> No
           </label>
         </div>
       </div>
 
-      <!-- calendar -->
+      <!-- Optional calendar hidden fields (set via JS when a slot is picked) -->
+      <input type="hidden" name="slot_start_iso" id="slot_start_iso">
+      <input type="hidden" name="slot_duration_mins" value="30">
+
+      <!-- Honeypot (bot trap) -->
+      <input type="text" name="company_name" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
 
       <!-- CTA -->
       <div class="pt-2">
         <button
           type="submit"
-          class="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#CBA135] px-5 py-3 text-base font-semibold text-black shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CBA135]/40 disabled:cursor-not-allowed disabled:opacity-60"
-          <svg class="h-5 w-5 transition group-disabled:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/></svg>
+          class="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#CBA135] px-5 py-3 text-base font-semibold text-black shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#CBA135]/40 disabled:cursor-not-allowed disabled:opacity-60">
+          <svg class="h-5 w-5 transition group-disabled:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z"/>
+          </svg>
           Book Appointment
           <span class="absolute right-4 hidden h-5 w-5 animate-spin rounded-full border-2 border-black/40 border-t-black group-[.loading]:inline-block"></span>
         </button>
         <p id="quote-status" class="mt-2 text-center text-sm text-neutral-400"></p>
       </div>
-
-      <!-- Honeypot -->
-      <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
     </form>
 
-    <!-- Tiny helper text -->
+    <!-- Messages -->
+    <p id="discovery-success" class="hidden mt-4 text-center text-[#CBA135] font-medium">
+      ✅ Thanks! Check your email for the calendar invite & confirmation.
+    </p>
+    <p id="discovery-error" class="hidden mt-4 text-center text-red-400">
+      ⚠️ Sorry—something went wrong. Please try again.
+    </p>
+
     <p class="mt-6 text-center text-xs text-neutral-500">
       By booking, you agree to our <a href="/privacy.html" class="underline decoration-neutral-600 hover:decoration-[#CBA135]">Privacy Policy</a>.
     </p>
   </div>
-      </div>
 </section>
 
   <!-- JS for toggling -->
