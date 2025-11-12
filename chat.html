@@ -123,7 +123,8 @@
   <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(203,161,53,0.18),transparent_60%)]"></div>
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-    <div class="grid items-center gap-10 md:grid-cols-2">
+    <!-- keep two columns; let the video align to the CTA bottom -->
+    <div class="grid gap-10 md:grid-cols-2">
       
       <!-- LEFT CONTENT -->
       <div>
@@ -135,18 +136,11 @@
           Deploy customized <span class="text-[#CBA135]">AI agents</span> - transforming your Business.
         </h1>
 
-        <!-- Free AI Audit Card -->
+        <!-- CTA card -->
         <div class="mt-10 rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 max-w-2xl">
-          <div class="grid items-center gap-8 md:grid-cols-[180px,1fr]">
-            
-            <!-- Left column: button -->
-            <div class="flex justify-center md:justify-start">
-              <button class="h-12 w-[180px] rounded-lg bg-brand-gold text-brand-black font-semibold text-lg shadow-elev hover:bg-[#d5b347] transition">
-                Free AI Audit
-              </button>
-            </div>
-
-            <!-- Right column: text -->
+          <!-- swap order: text left, button right -->
+          <div class="grid items-center gap-8 md:grid-cols-[1fr,180px]">
+            <!-- Left: header + list -->
             <div>
               <p class="text-lg text-brand-ivory font-semibold mb-2">
                 You’ll get a custom 5-page PDF showing:
@@ -157,13 +151,18 @@
                 <li>ROI forecast in £ and hours saved</li>
               </ul>
             </div>
-
+            <!-- Right: button -->
+            <div class="flex justify-center md:justify-end">
+              <button class="h-12 w-[180px] rounded-lg bg-brand-gold text-brand-black font-semibold text-lg shadow-elev hover:bg-[#d5b347] transition">
+                Free AI Audit
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT VIDEO -->
-      <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-2">
+      <!-- RIGHT VIDEO (bottom aligned to CTA card) -->
+      <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-2 md:self-end">
         <div id="demo" class="aspect-video w-full rounded-lg bg-neutral-800/60 ring-1 ring-inset ring-neutral-700 flex items-center justify-center">
           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" class="opacity-70">
             <path d="M8 7v10l9-5-9-5z" fill="currentColor"></path>
