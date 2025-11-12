@@ -111,7 +111,9 @@
       Answer a few questions so we can calculate time savings and recommend the best automations for your business.
     </p>
 
-    <form id="ai-audit-form" class="mt-10 space-y-10">
+    <form id="ai-audit-form" class="mt-10 space-y-10
+          data-n8n="https://YOUR_N8N/webhook/ai-audit" data-success="#audit-confirmation"
+          data-error="#audit-error"">
       <!-- 1) Business Overview -->
       <div class="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
         <h3 class="text-lg font-semibold text-brand-ivory">1) Business Overview</h3>
@@ -347,8 +349,13 @@
       </button>
 
       <!-- Honeypot -->
-      <input type="text" name="website" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
+      <input type="text" name="company_name" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true"">
     </form>
+
+     <!-- Add an error message target -->
+     <p id="audit-error" class="hidden mt-4 text-center text-red-400">
+     Sorry—there was a problem submitting your audit. Please try again.
+     </p>
 
     <!-- Confirmation -->
     <div id="audit-confirmation" class="hidden mt-6 text-center text-[#CBA135] font-medium">
