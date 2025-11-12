@@ -428,5 +428,103 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+  <script>
+(function () {
+  const forms = document.querySelectorAll("form[data-n8n]");
+  if (!forms.length) return;
+
+  const getUTMs = () => {
+    const params = new URLSearchParams(location.search);
+    const utm = {};
+    ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].forEach(k => {
+      if (params.get(k)) utm[k] = params.get(k);
+    });
+    return utm;
+  };
+
+  const serializeForm = (form) => {
+    const data = {};
+    const fd = new FormData(form);
+
+    for (const [key, value] of fd.entries()) {
+      // handle multiple checkboxes with same name → array
+      if (data[key] !== undefined) {
+        if (Array.isArray(data[key])) data[key].push(value);
+        else data[key] = [data[key], value];
+      } else {
+        data[key] = value.trim ? value.trim() : value;
+      }
+    }
+
+    // add metadata
+    data._meta = {
+      page: location.href,
+      referrer: document.referrer || null,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      userAgent: navigator.userAgent,
+      ts: new Date().toISOString(),
+      utm: getUTMs(),
+      source: form.getAttribute("id") || "form"
+    };
+
+    return data;
+  };
+
+  const show = (sel, bool) => {
+    const el = sel && document.querySelector(sel);
+    if (!el) return;
+    el.classList.toggle("hidden", !bool);
+  };
+
+  const validate = (form, payload) => {
+    // honeypot
+    if (payload.company_name) return "Bot detected";
+    // simple email check if present
+    const emailField = form.querySelector('input[type="email"]');
+    if (emailField && !/^\S+@\S+\.\S+$/.test(emailField.value)) return "Enter a valid email.";
+    // optional: require slot if slot field exists
+    const slotField = form.querySelector('[name="slot_start_iso"]');
+    if (slotField && !slotField.value) return "Please choose a time slot.";
+    return null;
+  };
+
+  forms.forEach(form => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      show(form.dataset.success, false);
+      show(form.dataset.error,   false);
+
+      const payload = serializeForm(form);
+      const err = validate(form, payload);
+      if (err) { show(form.dataset.error, true); return; }
+
+      const endpoint = form.dataset.n8n;
+      const btn = form.querySelector('[type="submit"]');
+      const originalText = btn?.textContent;
+
+      try {
+        if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; }
+
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error("Bad response");
+        show(form.dataset.success, true);
+        form.reset();
+
+      } catch (e) {
+        console.error(e);
+        show(form.dataset.error, true);
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = originalText; }
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
